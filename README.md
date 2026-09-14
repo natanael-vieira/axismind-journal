@@ -48,8 +48,4 @@ CodeQL, revisão de dependências e atualizações semanais pelo Dependabot. Con
 Antes de enviar alterações, execute `yarn typecheck`, `yarn build` e, quando
 houver acesso ao registro de pacotes, `yarn audit --groups dependencies`.
 
-## Conteúdo pendente
-
-- revisão jurídica independente de Política e Termos.
-
 Não publique CPF, endereço residencial, senhas, tokens, dados de cartão ou chaves privadas neste repositório.

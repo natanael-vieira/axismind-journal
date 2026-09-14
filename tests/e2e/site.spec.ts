@@ -57,17 +57,34 @@ test('oferece somente os idiomas sincronizados com o aplicativo', async ({ page 
   ]);
 });
 
-test('Política e Termos exibem versão, vigência e pendência jurídica', async ({ page }) => {
+test('Política e Termos exibem versão e vigência sem aviso adicional', async ({ page }) => {
   await page.goto('/privacidade/');
   await expect(page.getByText('Versão 2026-09-13.1 · vigente desde 13/09/2026')).toBeVisible();
-  await expect(page.getByText('Revisão jurídica independente ainda necessária antes da publicação comercial.')).toBeVisible();
+  await expect(page.locator('aside[role="note"]')).toHaveCount(0);
   await expect(page.getByText(/O axismind é um diário pessoal local-first/)).toBeVisible();
   await expect(page.getByText(/Política pública: https:\/\/natanael-vieira.github.io\/axismind-journal\//)).toBeVisible();
 
   await page.goto('/termos/');
   await expect(page.getByText('Versão 2026-09-13.1 · vigente desde 13/09/2026')).toBeVisible();
-  await expect(page.getByText('Revisão jurídica independente ainda necessária antes da publicação comercial.')).toBeVisible();
+  await expect(page.locator('aside[role="note"]')).toHaveCount(0);
   await expect(page.getByText(/As sugestões locais servem apenas para organizar/)).toBeVisible();
+});
+
+test('cards jurídicos alinham com o início do conteúdo em telas largas', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium', 'regra específica da viewport desktop');
+
+  for (const route of ['/privacidade/', '/termos/']) {
+    await page.goto(route);
+    const article = page.locator('article.legal-article');
+    const firstCard = article.locator('section').first();
+    const title = page.locator('main > section.axis-container h1').first();
+    const titleBox = await title.boundingBox();
+    const cardBox = await firstCard.boundingBox();
+
+    expect(titleBox).not.toBeNull();
+    expect(cardBox).not.toBeNull();
+    expect(Math.abs((cardBox?.x ?? 0) - (titleBox?.x ?? 0))).toBeLessThanOrEqual(1);
+  }
 });
 
 test('a apresentação pública evita a narrativa funcional antiga', async ({ page }) => {

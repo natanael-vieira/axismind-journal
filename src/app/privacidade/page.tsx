@@ -1,7 +1,6 @@
 'use client';
 
 import { LegalArticle } from '@/components/LegalArticle';
-import { LegalStatus } from '@/components/LegalStatus';
 import { PageIntro } from '@/components/PageIntro';
 import { legalStatus } from '@/content/legal-status';
 import { site } from '@/content/site';
@@ -17,7 +16,6 @@ export default function PrivacyPage() {
       <PageIntro eyebrow={`${versionLabel[locale]} ${site.legalVersion} · ${legalStatus[locale].effectiveSince}`} title={m.privacy.title}>
         <p>{m.privacy.intro}</p>
       </PageIntro>
-      <LegalStatus>{legalStatus[locale].reviewNotice}</LegalStatus>
       <LegalArticle>
         <section><h2>{m.privacy.s1}</h2><p>{translate(m.privacy.body1, variables)}</p></section>
         <section><h2>{m.privacy.s2}</h2><p>{m.privacy.body2}</p></section>

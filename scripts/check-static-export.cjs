@@ -29,4 +29,8 @@ if (!home.includes('Seu espaço para registrar o dia.')) {
   throw new Error('A Home exportada não contém a apresentação vigente.');
 }
 
+if (!home.includes(`href="${basePath}/brand/logo.png"`)) {
+  throw new Error('A Home exportada não aponta o favicon circular transparente.');
+}
+
 console.log(`Exportação estática validada em ${routes.length} rotas com basePath "${basePath}".`);

@@ -1,7 +1,6 @@
 'use client';
 
 import { LegalArticle } from '@/components/LegalArticle';
-import { LegalStatus } from '@/components/LegalStatus';
 import { PageIntro } from '@/components/PageIntro';
 import { legalStatus } from '@/content/legal-status';
 import { site } from '@/content/site';
@@ -17,7 +16,6 @@ export default function TermsPage() {
       <PageIntro eyebrow={`${versionLabel[locale]} ${site.legalVersion} · ${legalStatus[locale].effectiveSince}`} title={m.terms.title}>
         <p>{m.terms.intro}</p>
       </PageIntro>
-      <LegalStatus>{legalStatus[locale].reviewNotice}</LegalStatus>
       <LegalArticle>
         <section><h2>{m.terms.s1}</h2><p>{translate(m.terms.body1, variables)}</p></section>
         <section><h2>{m.terms.s2}</h2><p>{translate(m.terms.body2, variables)}</p></section>

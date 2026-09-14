@@ -51,5 +51,10 @@ describe('conteúdo público crítico', () => {
     const readme = fs.readFileSync(path.join(process.cwd(), 'README.md'), 'utf8');
 
     expect(readme).not.toContain('axismind-htm');
+    expect(readme).not.toMatch(/revisão jurídica independente/i);
+  });
+
+  it('mantém o logo circular transparente disponível para o favicon', () => {
+    expect(fs.existsSync(path.join(process.cwd(), 'public', 'brand', 'logo.png'))).toBe(true);
   });
 });
