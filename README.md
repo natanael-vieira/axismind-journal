@@ -1,12 +1,12 @@
 # axismind-journal
 
-Cópia de trabalho do site institucional do axismind, preparada a partir do
-`axismind-htm` para a reconstrução editorial do diário.
+Site institucional do axismind, um diário pessoal local-first para registrar
+experiências, rotina e anotações.
 
 As capturas verificadas do aplicativo em português estão em
 `public/media/app-pt-BR/thais-vieira/`. Elas registram a jornada da personagem
-Thais Vieira e servem como referência visual; não representam aprovação final
-das frases neutralizadas.
+Thais Vieira e servem como referência visual provisória até a próxima rodada
+de capturas.
 
 ## Desenvolvimento
 
@@ -22,6 +22,7 @@ yarn typecheck
 yarn test:unit
 yarn test:e2e
 yarn build
+yarn test:export
 ```
 
 A suíte usa Vitest e Testing Library para componentes e contratos de conteúdo,

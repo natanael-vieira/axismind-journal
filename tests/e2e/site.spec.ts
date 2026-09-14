@@ -2,19 +2,20 @@ import { expect, test } from '@playwright/test';
 import { isRtl, locales } from '@/i18n/messages';
 
 const routes = [
-  ['/', 'Um espaço privado para organizar o que você sente', 'Início'],
-  ['/como-usar/', 'Comece com calma e mantenha você no controle.', 'Como usar'],
-  ['/seguranca/', 'Segurança local, explicada com transparência.', 'Segurança'],
-  ['/privacidade/', 'Política de Privacidade', 'Privacidade'],
-  ['/termos/', 'Termos de Uso', 'Termos'],
-  ['/apoie/', 'Ajude o axismind a continuar cuidadoso e independente.', 'Apoie o projeto'],
+  ['/', 'Seu espaço para registrar o dia.', 'Início', 'Seu espaço para registrar o dia · axismind'],
+  ['/como-usar/', 'Comece com calma e mantenha você no controle.', 'Como usar', 'Como usar · axismind'],
+  ['/seguranca/', 'Segurança local, explicada com transparência.', 'Segurança', 'Segurança · axismind'],
+  ['/privacidade/', 'Política de Privacidade', 'Privacidade', 'Política de Privacidade · axismind'],
+  ['/termos/', 'Termos de Uso', 'Termos', 'Termos de Uso · axismind'],
+  ['/apoie/', 'Ajude o axismind a continuar independente.', 'Apoie o projeto', 'Apoie o projeto · axismind'],
 ] as const;
 
 test('todas as rotas públicas carregam seu conteúdo principal', async ({ page }) => {
-  for (const [route, heading, activeLabel] of routes) {
+  for (const [route, heading, activeLabel, title] of routes) {
     await page.goto(route);
     await expect(page.getByRole('heading', { level: 1, name: heading })).toBeVisible();
     await expect(page.locator('a[aria-current="page"]:visible', { hasText: activeLabel })).toBeVisible();
+    await expect(page).toHaveTitle(title);
   }
 });
 
@@ -37,41 +38,55 @@ test('permite trocar o idioma da interface sem sair da página', async ({ page }
 
   await language.selectOption('en');
 
-  await expect(page.getByRole('heading', { level: 1, name: 'A private space to organize what you feel' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Your space to record the day.' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'How it works' }).first()).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });
 
-test('oferece os novos idiomas e ativa RTL para árabe e hebraico', async ({ page }) => {
+test('oferece somente os idiomas sincronizados com o aplicativo', async ({ page }) => {
   await page.goto('/');
   const language = page.getByTestId('language-selector');
 
-  await expect(language.locator('option')).toHaveCount(12);
-  await language.selectOption('ar');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
-  await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
-  await expect(page.getByRole('heading', { level: 1, name: 'مساحة خاصة لتنظيم ما تشعر به' })).toBeVisible();
-
-  await language.selectOption('he');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'he');
-  await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+  await expect(language.locator('option')).toHaveCount(5);
+  await expect(language.locator('option')).toHaveText([
+    'Português (Brasil)',
+    'English',
+    'Español',
+    'Italiano',
+    'Français',
+  ]);
 });
 
-test('a versão final não exibe avisos de rascunho jurídico', async ({ page }) => {
+test('Política e Termos exibem versão, vigência e pendência jurídica', async ({ page }) => {
   await page.goto('/privacidade/');
-  await expect(page.getByText('A versão deverá passar por revisão jurídica antes da publicação comercial.')).toHaveCount(0);
-  await expect(page.getByText(/Esta política descreve como o aplicativo e este site tratam informações/)).toBeVisible();
+  await expect(page.getByText('Versão 2026-09-13.1 · vigente desde 13/09/2026')).toBeVisible();
+  await expect(page.getByText('Revisão jurídica independente ainda necessária antes da publicação comercial.')).toBeVisible();
+  await expect(page.getByText(/O axismind é um diário pessoal local-first/)).toBeVisible();
+  await expect(page.getByText(/Política pública: https:\/\/natanael-vieira.github.io\/axismind-journal\//)).toBeVisible();
 
   await page.goto('/termos/');
-  await expect(page.getByText('Este texto é um rascunho técnico sujeito a validação jurídica antes da publicação comercial.')).toHaveCount(0);
+  await expect(page.getByText('Versão 2026-09-13.1 · vigente desde 13/09/2026')).toBeVisible();
+  await expect(page.getByText('Revisão jurídica independente ainda necessária antes da publicação comercial.')).toBeVisible();
+  await expect(page.getByText(/As sugestões locais servem apenas para organizar/)).toBeVisible();
+});
+
+test('a apresentação pública evita a narrativa funcional antiga', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByText('Humor, sono, rotina e observações corporais podem ser registrados como percepções pessoais, sem interpretações automáticas.')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Conheça a privacidade' })).toHaveAttribute('href', '/privacidade/');
+  await expect(page.locator('body')).not.toContainText(/bem-estar emocional|medicação|consulta|crise/i);
+
+  await page.goto('/como-usar/');
+  await expect(page.locator('img[src*="axismind-como-usar.gif"]')).toHaveCount(0);
+  await expect(page.getByText(/A pessoa de confiança e qualquer serviço externo são opções independentes/)).toBeVisible();
 });
 
 test('os botões principais da tela inicial ficam empilhados no celular', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile', 'regra específica da viewport móvel');
   await page.goto('/');
 
-  const primary = page.getByRole('link', { name: /Entenda como funciona/ });
-  const secondary = page.getByRole('link', { name: 'Como protegemos seus dados' });
+  const primary = page.getByRole('link', { name: /Veja como usar/ });
+  const secondary = page.getByRole('link', { name: 'Conheça a privacidade' });
   const primaryBox = await primary.boundingBox();
   const secondaryBox = await secondary.boundingBox();
 
@@ -92,10 +107,10 @@ test('os botões principais da tela inicial ficam empilhados no celular', async 
 
 test('a galeria amplia e fecha uma captura mantendo a navegação por teclado', async ({ page }) => {
   await page.goto('/#telas');
-  const trigger = page.getByRole('button', { name: 'Ampliar imagem: Introdução ao diário' });
+  const trigger = page.getByRole('button', { name: 'Ampliar imagem: Um diário para o seu dia' });
 
   await trigger.click();
-  await expect(page.getByRole('dialog', { name: 'Introdução ao diário' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'Um diário para o seu dia' })).toBeVisible();
   await page.getByRole('button', { name: 'Fechar imagem ampliada' }).click();
   await expect(page.getByRole('dialog')).toBeHidden();
   await expect(trigger).toBeFocused();

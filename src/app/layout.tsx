@@ -7,7 +7,7 @@ import { SkipLink } from '@/components/SkipLink';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: { default: site.name, template: `%s · ${site.name}` },
+  title: { default: `${site.title} · ${site.name}`, template: `%s · ${site.name}` },
   description: site.description,
   referrer: 'no-referrer',
   robots: { index: true, follow: true },

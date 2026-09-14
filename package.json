@@ -15,7 +15,8 @@
     "test": "yarn test:unit && yarn test:e2e",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:export": "node scripts/check-static-export.cjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { interpolate, isRtl, messages, type Locale, type Messages } from './messages';
 
 type LocaleContextValue = {
@@ -20,6 +21,7 @@ const fallbackContext: LocaleContextValue = {
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('pt-BR');
+  const pathname = usePathname();
 
   useEffect(() => {
     const stored = window.localStorage.getItem('axismind-locale');
@@ -30,8 +32,19 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.lang = locale;
     document.documentElement.dir = isRtl(locale) ? 'rtl' : 'ltr';
     document.documentElement.dataset.locale = locale;
-    document.title = messages[locale].meta.siteTitle;
-  }, [locale]);
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+    const route = pathname.slice(basePath.length).replace(/^\/+|\/+$/g, '');
+    const titleByRoute: Record<string, string> = {
+      '': messages[locale].meta.homeTitle,
+      'como-usar': messages[locale].meta.howTitle,
+      seguranca: messages[locale].meta.securityTitle,
+      privacidade: messages[locale].meta.privacyTitle,
+      termos: messages[locale].meta.termsTitle,
+      apoie: messages[locale].meta.supportTitle,
+    };
+    const pageTitle = titleByRoute[route] ?? messages[locale].meta.siteTitle;
+    document.title = `${pageTitle} · ${messages[locale].meta.siteTitle}`;
+  }, [locale, pathname]);
 
   const value = useMemo<LocaleContextValue>(() => ({
     locale,

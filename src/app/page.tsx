@@ -27,13 +27,13 @@ export default function HomePage() {
           <p className="mt-7 max-w-xl text-lg leading-8 text-axis-body">{m.home.description}</p>
           <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <Link href="/como-usar/" className={buttonVariants({ className: 'w-full gap-2 px-4 text-sm leading-tight sm:w-auto sm:px-7 sm:text-base' })}>{m.home.primaryCta} <ArrowRight size={20} weight="bold" /></Link>
-            <Link href="/seguranca/" className={buttonVariants({ variant: 'outline', className: 'w-full px-4 text-sm sm:w-auto sm:px-5' })}>{m.home.secondaryCta}</Link>
+            <Link href="/privacidade/" className={buttonVariants({ variant: 'outline', className: 'w-full px-4 text-sm sm:w-auto sm:px-5' })}>{m.home.secondaryCta}</Link>
           </div>
           <p className="mt-6 max-w-xl text-sm leading-6 text-axis-body">{m.home.disclaimer}</p>
         </div>
         <Card className="relative overflow-hidden p-3 sm:p-5">
           <div className="wave-rule mb-4" />
-          <Image src={publicPath('/media/app-pt-BR/thais-vieira/13-home-thais-vieira.png')} width={1080} height={2400} alt={m.gallery.item1Alt} loading="eager" className="mx-auto max-h-[44rem] w-auto object-contain" />
+          <Image src={publicPath('/media/app-pt-BR/thais-vieira/04-boas-vindas-diario.png')} width={1080} height={2400} alt={m.gallery.item2Alt} loading="eager" className="mx-auto max-h-[44rem] w-auto object-contain" />
         </Card>
       </section>
 

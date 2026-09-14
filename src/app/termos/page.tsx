@@ -1,7 +1,9 @@
 'use client';
 
 import { LegalArticle } from '@/components/LegalArticle';
+import { LegalStatus } from '@/components/LegalStatus';
 import { PageIntro } from '@/components/PageIntro';
+import { legalStatus } from '@/content/legal-status';
 import { site } from '@/content/site';
 import { useI18n } from '@/i18n/LocaleProvider';
 import type { Locale } from '@/i18n/messages';
@@ -9,12 +11,13 @@ import type { Locale } from '@/i18n/messages';
 export default function TermsPage() {
   const { locale, messages: m, translate } = useI18n();
   const variables = { controller: site.controller, location: site.controllerLocation, email: site.privacyEmail, age: site.minimumAge };
-  const versionLabel: Record<Locale, string> = { 'pt-BR': 'Versão', en: 'Version', es: 'Versión', it: 'Versione', fr: 'Version', ru: 'Версия', de: 'Version', 'zh-CN': '版本', ja: 'バージョン', ko: '버전', ar: 'الإصدار', he: 'גרסה' };
+  const versionLabel: Record<Locale, string> = { 'pt-BR': 'Versão', en: 'Version', es: 'Versión', it: 'Versione', fr: 'Version' };
   return (
     <>
-      <PageIntro eyebrow={`${versionLabel[locale]} ${site.legalVersion}`} title={m.terms.title}>
+      <PageIntro eyebrow={`${versionLabel[locale]} ${site.legalVersion} · ${legalStatus[locale].effectiveSince}`} title={m.terms.title}>
         <p>{m.terms.intro}</p>
       </PageIntro>
+      <LegalStatus>{legalStatus[locale].reviewNotice}</LegalStatus>
       <LegalArticle>
         <section><h2>{m.terms.s1}</h2><p>{translate(m.terms.body1, variables)}</p></section>
         <section><h2>{m.terms.s2}</h2><p>{translate(m.terms.body2, variables)}</p></section>

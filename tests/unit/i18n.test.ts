@@ -3,12 +3,12 @@ import { isRtl, localeLabels, locales, messages } from '@/i18n/messages';
 
 describe('catálogo de internacionalização', () => {
   it('expõe os idiomas suportados', () => {
-    expect(locales).toEqual(['pt-BR', 'en', 'es', 'it', 'fr', 'ru', 'de', 'zh-CN', 'ja', 'ko', 'ar', 'he']);
+    expect(locales).toEqual(['pt-BR', 'en', 'es', 'it', 'fr']);
     expect(Object.keys(localeLabels)).toHaveLength(locales.length);
   });
 
-  it('marca somente árabe e hebraico como RTL', () => {
-    expect(locales.filter(isRtl)).toEqual(['ar', 'he']);
+  it('mantém os idiomas publicados em leitura da esquerda para a direita', () => {
+    expect(locales.filter(isRtl)).toEqual([]);
     expect(isRtl('en')).toBe(false);
   });
 
@@ -30,12 +30,36 @@ describe('catálogo de internacionalização', () => {
   });
 
   it('mantém textos visíveis da galeria e acessibilidade no idioma selecionado', () => {
-    expect(messages['pt-BR'].gallery.item1Title).toBe('Jornada principal');
-    expect(messages.en.gallery.item1Title).toBe('Main journey');
-    expect(messages.es.gallery.item1Title).toBe('Jornada principal');
+    expect(messages['pt-BR'].gallery.item1Title).toBe('Um diário para o seu dia');
+    expect(messages.en.gallery.item1Title).toBe('A journal for your day');
+    expect(messages.es.gallery.item1Title).not.toBe('Jornada principal');
     expect(messages.en.accessibility.skip).toBe('Skip to content');
     expect(messages.es.accessibility.skip).toBe('Saltar al contenido');
     expect(messages.fr.accessibility.mainNav).toBe('Navigation principale');
+  });
+
+  it('apresenta o produto como diário geral sem funções antigas', () => {
+    const publicCopy = JSON.stringify({
+      home: messages['pt-BR'].home,
+      how: messages['pt-BR'].how,
+      footer: messages['pt-BR'].footer,
+      gallery: messages['pt-BR'].gallery,
+    });
+
+    expect(messages['pt-BR'].home.title).toBe('Seu espaço para registrar o dia.');
+    expect(messages['pt-BR'].home.feature3Body).toContain('Humor, sono, rotina e observações corporais');
+    expect(publicCopy).not.toMatch(/bem-estar emocional|medicação|consulta|crise|avaliação clínica|ajuda imediata/i);
+    expect(JSON.stringify(messages)).not.toContain('CVV');
+  });
+
+  it('mantém Política e Termos alinhados ao texto vigente do aplicativo', () => {
+    expect(messages['pt-BR'].privacy.body2).toBe(
+      'O axismind é um diário pessoal local-first. Permite registrar texto, voz transcrita, momentos rápidos, observações corporais, lembretes, perguntas pessoais e preparação de conversas.',
+    );
+    expect(messages['pt-BR'].privacy.body3).toContain('organização pessoal e avisos opcionais');
+    expect(messages['pt-BR'].terms.body3).toBe(
+      'O app auxilia a registrar e organizar experiências pessoais, rotina, lembretes e conversas. As sugestões locais servem apenas para organizar o conteúdo informado pela própria pessoa.',
+    );
   });
 
   it('permite interpolar valores dinâmicos sem traduzir os dados', () => {
@@ -73,7 +97,7 @@ describe('catálogo de internacionalização', () => {
     const placeholders = (value: string) => [...value.matchAll(/\{\w+\}/g)].map(([match]) => match).sort();
 
     for (const locale of locales) {
-      expect(placeholders(messages[locale].privacy.body1)).toEqual(['{controller}', '{email}', '{location}']);
+      expect(placeholders(messages[locale].privacy.body1)).toEqual(['{controller}', '{email}', '{location}', '{url}']);
       expect(placeholders(messages[locale].privacy.body8)).toEqual(['{age}']);
       expect(placeholders(messages[locale].terms.body1)).toEqual(['{controller}', '{email}', '{location}']);
       expect(placeholders(messages[locale].terms.body2)).toEqual(['{age}']);
