@@ -30,8 +30,9 @@ describe('catálogo de internacionalização', () => {
   });
 
   it('mantém textos visíveis da galeria e acessibilidade no idioma selecionado', () => {
-    expect(messages['pt-BR'].gallery.item1Title).toBe('Um diário para o seu dia');
-    expect(messages.en.gallery.item1Title).toBe('A journal for your day');
+    expect(messages['pt-BR'].gallery.item1Title).toBe('Seu dia, no seu ritmo');
+    expect(messages.en.gallery.item1Title).toBe('Your day, at your pace');
+    expect(messages['pt-BR'].gallery.item6Title).toBe('Seu perfil, suas escolhas');
     expect(messages.es.gallery.item1Title).not.toBe('Jornada principal');
     expect(messages.en.accessibility.skip).toBe('Skip to content');
     expect(messages.es.accessibility.skip).toBe('Saltar al contenido');
@@ -47,7 +48,7 @@ describe('catálogo de internacionalização', () => {
     });
 
     expect(messages['pt-BR'].home.title).toBe('Seu espaço para registrar o dia.');
-    expect(messages['pt-BR'].home.feature3Body).toContain('Humor, sono, rotina e observações corporais');
+    expect(messages['pt-BR'].home.feature3Body).toContain('Cofre de pensamentos');
     expect(publicCopy).not.toMatch(/bem-estar emocional|medicação|consulta|crise|avaliação clínica|ajuda imediata/i);
     expect(JSON.stringify(messages)).not.toContain('CVV');
   });

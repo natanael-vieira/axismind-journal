@@ -4,9 +4,10 @@ Site institucional do axismind, um diário pessoal local-first para registrar
 experiências, rotina e anotações.
 
 As capturas verificadas do aplicativo em português estão em
-`public/media/app-pt-BR/thais-vieira/`. Elas registram a jornada da personagem
-Thais Vieira e servem como referência visual provisória até a próxima rodada
-de capturas.
+`public/media/app-pt-BR/thais-vieira/1.5.24/`. Elas documentam a versão Android
+1.5.24 com o perfil de demonstração de Thais Vieira. A Home usa a captura em
+WebP completa; a galeria usa miniaturas próprias e só carrega a imagem completa
+quando a pessoa decide ampliá-la.
 
 ## Desenvolvimento
 

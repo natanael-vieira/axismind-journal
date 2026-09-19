@@ -20,8 +20,8 @@ export default function HomePage() {
   const { messages: m } = useI18n();
   return (
     <>
-      <section className="axis-container grid min-h-[760px] items-center gap-12 py-16 lg:grid-cols-[.9fr_1.1fr] lg:py-24">
-        <div>
+      <section className="axis-container grid min-h-[760px] gap-12 py-16 lg:grid-cols-[.9fr_1.1fr] lg:items-start lg:py-24">
+        <div data-testid="home-hero-copy">
           <p className="eyebrow">{m.home.eyebrow}</p>
           <h1 className="mt-5 max-w-2xl text-balance text-5xl font-normal leading-[1.04] tracking-[-.04em] sm:text-7xl">{m.home.title}</h1>
           <p className="mt-7 max-w-xl text-lg leading-8 text-axis-body">{m.home.description}</p>
@@ -31,9 +31,14 @@ export default function HomePage() {
           </div>
           <p className="mt-6 max-w-xl text-sm leading-6 text-axis-body">{m.home.disclaimer}</p>
         </div>
-        <Card className="relative overflow-hidden p-3 sm:p-5">
-          <div className="wave-rule mb-4" />
-          <Image src={publicPath('/media/app-pt-BR/thais-vieira/04-boas-vindas-diario.png')} width={1080} height={2400} alt={m.gallery.item2Alt} loading="eager" className="mx-auto max-h-[44rem] w-auto object-contain" />
+        <Card data-testid="home-hero-preview" className="hero-preview overflow-hidden p-5 sm:p-8">
+          <div className="hero-preview-orb hero-preview-orb-peach" aria-hidden="true" />
+          <div className="hero-preview-orb hero-preview-orb-lilac" aria-hidden="true" />
+          <div className="hero-preview-orb hero-preview-orb-teal" aria-hidden="true" />
+          <div data-testid="home-phone-mockup" className="phone-mockup">
+            <span className="phone-mockup-speaker" aria-hidden="true" />
+            <Image src={publicPath(screenshots[0].src)} width={1080} height={2400} alt={m.gallery.item1Alt} loading="eager" fetchPriority="high" className="phone-mockup-screen" />
+          </div>
         </Card>
       </section>
 
@@ -59,7 +64,7 @@ export default function HomePage() {
           </div>
           <p className="max-w-md text-sm leading-6 text-axis-body">{m.home.screenshotsDescription}</p>
         </div>
-        <ScreenshotGallery screenshots={screenshots.map((shot) => ({ ...shot, src: publicPath(shot.src) }))} />
+        <ScreenshotGallery screenshots={screenshots.map((shot) => ({ ...shot, src: publicPath(shot.src), thumbnailSrc: publicPath(shot.thumbnailSrc) }))} />
       </section>
 
       <section className="axis-container py-16">

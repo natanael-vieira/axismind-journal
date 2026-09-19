@@ -9,9 +9,10 @@ import { useI18n } from '@/i18n/LocaleProvider';
 
 type Screenshot = {
   src: string;
+  thumbnailSrc: string;
   alt?: string;
   title?: string;
-  translationItem?: 1 | 2 | 3 | 4;
+  translationItem?: 1 | 2 | 3 | 4 | 5 | 6;
   sequence?: number;
 };
 
@@ -73,8 +74,8 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
   const screenshotCopy = (shot: Screenshot, index: number) => {
     if (shot.title && shot.alt) return { title: shot.title, alt: shot.alt };
 
-    const itemNumber = shot.translationItem ?? Math.min(index + 1, 4);
-    const item = `item${itemNumber}` as 'item1' | 'item2' | 'item3' | 'item4';
+    const itemNumber = shot.translationItem ?? Math.min(index + 1, 6);
+    const item = `item${itemNumber}` as 'item1' | 'item2' | 'item3' | 'item4' | 'item5' | 'item6';
     const suffix = shot.sequence === undefined ? '' : ` ${String(shot.sequence).padStart(2, '0')}`;
 
     return {
@@ -137,7 +138,7 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
 
   return (
     <>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {screenshots.map((shot, index) => (
           (() => {
             const { title, alt } = screenshotCopy(shot, index);
@@ -154,9 +155,9 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
                 onClick={() => openScreenshot(index)}
               >
                 <Image
-                  src={shot.src}
-                  width={1080}
-                  height={2400}
+                  src={shot.thumbnailSrc}
+                  width={720}
+                  height={1600}
                   alt={alt}
                   className="screenshot-thumbnail"
                 />
@@ -231,7 +232,7 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
                 width={1080}
                 height={2400}
                 alt={selectedCopy?.alt ?? ''}
-                priority
+                fetchPriority="high"
                 className="screenshot-lightbox-image"
                 draggable={false}
                 style={{ transform: `translate3d(${viewer.x}px, ${viewer.y}px, 0) scale(${viewer.scale})` }}

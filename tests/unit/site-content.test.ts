@@ -34,17 +34,31 @@ describe('conteúdo público crítico', () => {
     expect(payload.slice(-4)).toBe(pixGenerator.crc16(payloadWithoutCrc));
   });
 
-  it('publica somente capturas provisórias compatíveis com o diário geral', () => {
+  it('publica as capturas reais da versão 1.5.24 em formatos leves para celular', () => {
     expect(screenshots.map(({ src }) => src)).toEqual([
-      '/media/app-pt-BR/thais-vieira/01-onboarding-introducao.png',
-      '/media/app-pt-BR/thais-vieira/04-boas-vindas-diario.png',
-      '/media/app-pt-BR/thais-vieira/13-home-thais-vieira.png',
-      '/media/app-pt-BR/thais-vieira/18-corpo-intensidade-qualitativa.png',
+      '/media/app-pt-BR/thais-vieira/1.5.24/01-hoje.webp',
+      '/media/app-pt-BR/thais-vieira/1.5.24/02-compass.webp',
+      '/media/app-pt-BR/thais-vieira/1.5.24/03-cofre-de-pensamentos.webp',
+      '/media/app-pt-BR/thais-vieira/1.5.24/04-momento-rapido.webp',
+      '/media/app-pt-BR/thais-vieira/1.5.24/05-diario.webp',
+      '/media/app-pt-BR/thais-vieira/1.5.24/06-perfil-thais-vieira.webp',
     ]);
+
+    let thumbnailBytes = 0;
     for (const screenshot of screenshots) {
-      expect(screenshot.src).toMatch(/^\/media\/app-pt-BR\/thais-vieira\/\d{2}-.+\.png$/);
-      expect(fs.existsSync(path.join(process.cwd(), 'public', screenshot.src))).toBe(true);
+      expect(screenshot.thumbnailSrc).toMatch(/^\/media\/app-pt-BR\/thais-vieira\/1\.5\.24\/thumbs\/\d{2}-.+\.webp$/);
+
+      const fullPath = path.join(process.cwd(), 'public', screenshot.src);
+      const thumbnailPath = path.join(process.cwd(), 'public', screenshot.thumbnailSrc);
+
+      expect(fs.existsSync(fullPath)).toBe(true);
+      expect(fs.existsSync(thumbnailPath)).toBe(true);
+      expect(fs.statSync(fullPath).size).toBeLessThanOrEqual(300_000);
+      expect(fs.statSync(thumbnailPath).size).toBeLessThanOrEqual(70_000);
+      thumbnailBytes += fs.statSync(thumbnailPath).size;
     }
+
+    expect(thumbnailBytes).toBeLessThanOrEqual(300_000);
   });
 
   it('não aponta a documentação para o projeto legado', () => {
@@ -55,6 +69,10 @@ describe('conteúdo público crítico', () => {
   });
 
   it('mantém o logo circular transparente disponível para o favicon', () => {
-    expect(fs.existsSync(path.join(process.cwd(), 'public', 'brand', 'logo.png'))).toBe(true);
+    const logoPath = path.join(process.cwd(), 'public', 'brand', 'logo.png');
+
+    expect(fs.existsSync(logoPath)).toBe(true);
+    expect(fs.statSync(logoPath).size).toBeLessThanOrEqual(80_000);
+    expect(fs.existsSync(path.join(process.cwd(), 'public', 'brand', 'app-icon.png'))).toBe(false);
   });
 });

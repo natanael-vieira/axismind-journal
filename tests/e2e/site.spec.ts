@@ -89,7 +89,7 @@ test('cards jurídicos alinham com o início do conteúdo em telas largas', asyn
 
 test('a apresentação pública evita a narrativa funcional antiga', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByText('Humor, sono, rotina e observações corporais podem ser registrados como percepções pessoais, sem interpretações automáticas.')).toBeVisible();
+  await expect(page.getByText(/guarde ideias e rascunhos no Cofre de pensamentos/)).toBeVisible();
   await expect(page.getByRole('link', { name: 'Conheça a privacidade' })).toHaveAttribute('href', '/privacidade/');
   await expect(page.locator('body')).not.toContainText(/bem-estar emocional|medicação|consulta|crise/i);
 
@@ -122,12 +122,36 @@ test('os botões principais da tela inicial ficam empilhados no celular', async 
   expect((supportBox?.x ?? 0) + (supportBox?.width ?? 0)).toBeLessThanOrEqual(viewport?.width ?? 0);
 });
 
+test('o destaque da Home usa a tela Hoje e alinha o texto ao topo no desktop', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium', 'regra específica da viewport desktop');
+  await page.goto('/');
+
+  const copyBox = await page.getByTestId('home-hero-copy').boundingBox();
+  const previewBox = await page.getByTestId('home-hero-preview').boundingBox();
+  const heroImage = page.getByTestId('home-hero-preview').getByRole('img');
+
+  expect(copyBox).not.toBeNull();
+  expect(previewBox).not.toBeNull();
+  expect(Math.abs((copyBox?.y ?? 0) - (previewBox?.y ?? 0))).toBeLessThanOrEqual(1);
+  await expect(heroImage).toHaveAttribute('src', /\/1\.5\.24\/01-hoje\.webp$/);
+
+  const mockupStyle = await page.getByTestId('home-phone-mockup').evaluate((element) => {
+    const style = getComputedStyle(element);
+    return { borderWidth: style.borderWidth, borderRadius: style.borderRadius };
+  });
+  const previewStyle = await page.getByTestId('home-hero-preview').evaluate((element) => getComputedStyle(element).backgroundImage);
+
+  expect(parseFloat(mockupStyle.borderWidth)).toBeGreaterThanOrEqual(6);
+  expect(parseFloat(mockupStyle.borderRadius)).toBeGreaterThanOrEqual(40);
+  expect(previewStyle).not.toBe('none');
+});
+
 test('a galeria amplia e fecha uma captura mantendo a navegação por teclado', async ({ page }) => {
   await page.goto('/#telas');
-  const trigger = page.getByRole('button', { name: 'Ampliar imagem: Um diário para o seu dia' });
+  const trigger = page.getByRole('button', { name: 'Ampliar imagem: Seu dia, no seu ritmo' });
 
   await trigger.click();
-  await expect(page.getByRole('dialog', { name: 'Um diário para o seu dia' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'Seu dia, no seu ritmo' })).toBeVisible();
   await page.getByRole('button', { name: 'Fechar imagem ampliada' }).click();
   await expect(page.getByRole('dialog')).toBeHidden();
   await expect(trigger).toBeFocused();

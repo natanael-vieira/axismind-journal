@@ -3,11 +3,11 @@ import { describe, expect, it } from 'vitest';
 import { ScreenshotGallery } from '@/components/ScreenshotGallery';
 
 const screenshots = [
-  { src: '/screenshots/1.png', title: 'Introdução ao diário', alt: 'Introdução ao diário — captura real do axismind em português do Brasil' },
-  { src: '/screenshots/2.png', title: 'Privacidade no aparelho', alt: 'Privacidade no aparelho — captura real do axismind em português do Brasil' },
-  { src: '/screenshots/3.png', title: 'Limites e consentimento', alt: 'Limites e consentimento — captura real do axismind em português do Brasil' },
-  { src: '/screenshots/4.png', title: 'Boas-vindas ao diário', alt: 'Boas-vindas ao diário — captura real do axismind em português do Brasil' },
-  { src: '/screenshots/5.png', title: 'Recursos de organização', alt: 'Recursos de organização — captura real do axismind em português do Brasil' },
+  { src: '/screenshots/1.webp', thumbnailSrc: '/screenshots/thumbs/1.webp', title: 'Introdução ao diário', alt: 'Introdução ao diário — captura real do axismind em português do Brasil' },
+  { src: '/screenshots/2.webp', thumbnailSrc: '/screenshots/thumbs/2.webp', title: 'Privacidade no aparelho', alt: 'Privacidade no aparelho — captura real do axismind em português do Brasil' },
+  { src: '/screenshots/3.webp', thumbnailSrc: '/screenshots/thumbs/3.webp', title: 'Limites e consentimento', alt: 'Limites e consentimento — captura real do axismind em português do Brasil' },
+  { src: '/screenshots/4.webp', thumbnailSrc: '/screenshots/thumbs/4.webp', title: 'Boas-vindas ao diário', alt: 'Boas-vindas ao diário — captura real do axismind em português do Brasil' },
+  { src: '/screenshots/5.webp', thumbnailSrc: '/screenshots/thumbs/5.webp', title: 'Recursos de organização', alt: 'Recursos de organização — captura real do axismind em português do Brasil' },
 ] as const;
 
 describe('ScreenshotGallery', () => {
@@ -15,9 +15,12 @@ describe('ScreenshotGallery', () => {
     render(<ScreenshotGallery screenshots={screenshots} />);
     const trigger = screen.getByRole('button', { name: 'Ampliar imagem: Introdução ao diário' });
 
+    expect(within(trigger).getByRole('img')).toHaveAttribute('src', '/screenshots/thumbs/1.webp');
+
     fireEvent.click(trigger);
 
     expect(screen.getByRole('dialog', { name: 'Introdução ao diário' })).toBeVisible();
+    expect(within(screen.getByRole('dialog')).getByRole('img')).toHaveAttribute('src', '/screenshots/1.webp');
     expect(document.body).toHaveStyle({ overflow: 'hidden' });
     const close = screen.getByRole('button', { name: 'Fechar imagem ampliada' });
     expect(close).toHaveFocus();
