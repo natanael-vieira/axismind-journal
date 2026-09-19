@@ -11,6 +11,15 @@ const screenshots = [
 ] as const;
 
 describe('ScreenshotGallery', () => {
+  it('apresenta todos os prints em mockups de celular sem trocar as miniaturas leves', () => {
+    render(<ScreenshotGallery screenshots={screenshots} />);
+
+    const mockups = screen.getAllByTestId('gallery-phone-mockup');
+
+    expect(mockups).toHaveLength(screenshots.length);
+    expect(within(mockups[0]).getByRole('img')).toHaveAttribute('src', '/screenshots/thumbs/1.webp');
+  });
+
   it('abre a captura escolhida em um diálogo e devolve o foco ao fechar', async () => {
     render(<ScreenshotGallery screenshots={screenshots} />);
     const trigger = screen.getByRole('button', { name: 'Ampliar imagem: Introdução ao diário' });

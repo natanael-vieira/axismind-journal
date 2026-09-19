@@ -154,13 +154,16 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
                 aria-haspopup="dialog"
                 onClick={() => openScreenshot(index)}
               >
-                <Image
-                  src={shot.thumbnailSrc}
-                  width={720}
-                  height={1600}
-                  alt={alt}
-                  className="screenshot-thumbnail"
-                />
+                <div data-testid="gallery-phone-mockup" className="gallery-phone-mockup">
+                  <span className="gallery-phone-mockup-speaker" aria-hidden="true" />
+                  <Image
+                    src={shot.thumbnailSrc}
+                    width={720}
+                    height={1600}
+                    alt={alt}
+                    className="screenshot-thumbnail"
+                  />
+                </div>
                 <span className="screenshot-zoom-hint" aria-hidden="true">
                   <MagnifyingGlassPlus size={20} weight="bold" />
                   {m.gallery.enlarge}
