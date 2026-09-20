@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { MagnifyingGlassPlus, X } from '@phosphor-icons/react';
+import { CaretLeft, CaretRight, MagnifyingGlassPlus, X } from '@phosphor-icons/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -51,6 +51,13 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
     trigger?.focus();
   }, [selectedIndex]);
 
+  const showRelativeScreenshot = useCallback((offset: number) => {
+    setViewer({ scale: 1, x: 0, y: 0 });
+    setSelectedIndex((current) => current === null
+      ? null
+      : (current + offset + screenshots.length) % screenshots.length);
+  }, [screenshots.length]);
+
   useEffect(() => {
     if (selectedIndex === null) return;
 
@@ -60,6 +67,14 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') closeScreenshot();
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showRelativeScreenshot(-1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        showRelativeScreenshot(1);
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -67,7 +82,7 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
       document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [closeScreenshot, selectedIndex]);
+  }, [closeScreenshot, selectedIndex, showRelativeScreenshot]);
 
   const selectedScreenshot = selectedIndex === null ? null : screenshots[selectedIndex];
 
@@ -205,6 +220,24 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
             >
               <X size={26} weight="bold" aria-hidden="true" />
             </Button>
+            <Button
+              type="button"
+              variant="unstyled"
+              className="screenshot-lightbox-nav screenshot-lightbox-previous"
+              aria-label={m.gallery.previous}
+              onClick={() => showRelativeScreenshot(-1)}
+            >
+              <CaretLeft size={28} weight="bold" aria-hidden="true" />
+            </Button>
+            <Button
+              type="button"
+              variant="unstyled"
+              className="screenshot-lightbox-nav screenshot-lightbox-next"
+              aria-label={m.gallery.next}
+              onClick={() => showRelativeScreenshot(1)}
+            >
+              <CaretRight size={28} weight="bold" aria-hidden="true" />
+            </Button>
             <div
               ref={zoomTargetRef}
               className="screenshot-lightbox-viewport"
@@ -230,17 +263,27 @@ export function ScreenshotGallery({ screenshots }: { screenshots: readonly Scree
                 if (event.key === '0') resetViewer();
               }}
             >
-              <Image
-                src={selectedScreenshot.src}
-                width={1080}
-                height={2400}
-                alt={selectedCopy?.alt ?? ''}
-                fetchPriority="high"
-                className="screenshot-lightbox-image"
-                draggable={false}
+              <div
+                data-testid="lightbox-phone-mockup"
+                className="lightbox-phone-mockup"
                 style={{ transform: `translate3d(${viewer.x}px, ${viewer.y}px, 0) scale(${viewer.scale})` }}
-              />
+              >
+                <span className="lightbox-phone-mockup-speaker" aria-hidden="true" />
+                <Image
+                  src={selectedScreenshot.src}
+                  width={1080}
+                  height={2400}
+                  alt={selectedCopy?.alt ?? ''}
+                  fetchPriority="high"
+                  className="screenshot-lightbox-image"
+                  draggable={false}
+                />
+              </div>
             </div>
+            <p className="screenshot-lightbox-caption" aria-live="polite">
+              <span>{selectedCopy?.title}</span>
+              <span>{selectedIndex + 1} / {screenshots.length}</span>
+            </p>
           </div>
         </div>
       ) : null}
