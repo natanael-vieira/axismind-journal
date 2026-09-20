@@ -90,7 +90,7 @@ test('cards jurídicos alinham com o início do conteúdo em telas largas', asyn
 test('a apresentação pública evita a narrativa funcional antiga', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByText(/guarde ideias e rascunhos no Cofre de pensamentos/)).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Conheça a privacidade' })).toHaveAttribute('href', '/privacidade/');
+  await expect(page.getByRole('link', { name: 'Conheça a privacidade' })).toHaveAttribute('href', /\/privacidade\/$/);
   await expect(page.locator('body')).not.toContainText(/bem-estar emocional|medicação|consulta|crise/i);
 
   await page.goto('/como-usar/');
@@ -143,7 +143,8 @@ test('o destaque da Home usa a tela Hoje e alinha o texto ao topo no desktop', a
 
   expect(parseFloat(mockupStyle.borderWidth)).toBeGreaterThanOrEqual(6);
   expect(parseFloat(mockupStyle.borderRadius)).toBeGreaterThanOrEqual(40);
-  expect(previewStyle).not.toBe('none');
+  await expect(page.getByTestId('home-preview-color-rule')).toBeVisible();
+  expect(previewStyle).toBe('none');
 });
 
 test('a galeria amplia e fecha uma captura mantendo a navegação por teclado', async ({ page }) => {

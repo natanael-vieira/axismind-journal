@@ -48,39 +48,38 @@ export default function SecurityPage() {
       </section>
 
       <section className="axis-container py-14" aria-labelledby="resultado">
-        <Card className="overflow-hidden p-7 sm:p-10">
-          <div className="wave-rule mb-8" />
-          <p className="eyebrow">{m.security.resultEyebrow}</p>
+        <Card data-testid="security-result-card" tone="dark" className="overflow-hidden rounded-[2.5rem] p-7 sm:p-10">
+          <p className="text-sm font-bold uppercase tracking-[.2em] text-axis-peach">{m.security.resultEyebrow}</p>
           <h2 id="resultado" className="mt-4 text-3xl font-normal sm:text-5xl">
             {m.security.resultTitle}
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            <Card className="rounded-[1.5rem] border-0 bg-axis-muted p-5 shadow-none">
-              <strong className="block text-3xl text-axis-teal">0</strong>
-              <span className="mt-2 block text-sm leading-6 text-axis-body">
+            <div className="rounded-[1.5rem] border border-axis-surface/15 bg-axis-surface/10 p-5">
+              <strong className="block text-3xl text-axis-peach">0</strong>
+              <span className="mt-2 block text-sm leading-6 text-axis-surface/75">
                 {m.security.stat1}
               </span>
-            </Card>
-            <Card className="rounded-[1.5rem] border-0 bg-axis-muted p-5 shadow-none">
-              <strong className="block text-3xl text-axis-teal">0</strong>
-              <span className="mt-2 block text-sm leading-6 text-axis-body">
+            </div>
+            <div className="rounded-[1.5rem] border border-axis-surface/15 bg-axis-surface/10 p-5">
+              <strong className="block text-3xl text-axis-peach">0</strong>
+              <span className="mt-2 block text-sm leading-6 text-axis-surface/75">
                 {m.security.stat2}
               </span>
-            </Card>
-            <Card className="rounded-[1.5rem] border-0 bg-axis-muted p-5 shadow-none">
-              <strong className="block text-3xl text-axis-teal">1.142</strong>
-              <span className="mt-2 block text-sm leading-6 text-axis-body">
+            </div>
+            <div className="rounded-[1.5rem] border border-axis-surface/15 bg-axis-surface/10 p-5">
+              <strong className="block text-3xl text-axis-peach">1.142</strong>
+              <span className="mt-2 block text-sm leading-6 text-axis-surface/75">
                 {m.security.stat3}
               </span>
-            </Card>
+            </div>
           </div>
-          <p className="mt-8 max-w-4xl text-sm leading-6 text-axis-body">
+          <p className="mt-8 max-w-4xl text-sm leading-6 text-axis-surface/75">
             {m.security.resultDisclaimer}
           </p>
-          <p className="mt-4 text-sm leading-6 text-axis-body">
+          <p className="mt-4 text-sm leading-6 text-axis-surface/75">
             {m.security.tool}{' '}
             <a
-              className="font-bold text-axis-teal underline underline-offset-4"
+              className="font-bold text-axis-peach underline underline-offset-4"
               href="https://mobsf.github.io/docs/"
               rel="noreferrer"
               target="_blank"

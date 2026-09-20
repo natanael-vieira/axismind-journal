@@ -31,13 +31,13 @@ export default function HomePage() {
           </div>
           <p className="mt-6 max-w-xl text-sm leading-6 text-axis-body">{m.home.disclaimer}</p>
         </div>
-        <Card data-testid="home-hero-preview" className="hero-preview overflow-hidden p-5 sm:p-8">
-          <div className="hero-preview-orb hero-preview-orb-peach" aria-hidden="true" />
-          <div className="hero-preview-orb hero-preview-orb-lilac" aria-hidden="true" />
-          <div className="hero-preview-orb hero-preview-orb-teal" aria-hidden="true" />
-          <div data-testid="home-phone-mockup" className="phone-mockup">
-            <span className="phone-mockup-speaker" aria-hidden="true" />
-            <Image src={publicPath(screenshots[0].src)} width={1080} height={2400} alt={m.gallery.item1Alt} loading="eager" fetchPriority="high" className="phone-mockup-screen" />
+        <Card data-testid="home-hero-preview" className="overflow-hidden p-5 sm:p-8">
+          <div data-testid="home-preview-color-rule" className="wave-rule mb-6" aria-hidden="true" />
+          <div className="flex justify-center">
+            <div data-testid="home-phone-mockup" className="phone-mockup">
+              <span className="phone-mockup-speaker" aria-hidden="true" />
+              <Image src={publicPath(screenshots[0].src)} width={1080} height={2400} alt={m.gallery.item1Alt} loading="eager" fetchPriority="high" className="phone-mockup-screen" />
+            </div>
           </div>
         </Card>
       </section>

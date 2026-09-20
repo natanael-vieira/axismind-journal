@@ -29,9 +29,9 @@ export default function HowToPage() {
         ))}
       </section>
       <section className="axis-container py-16">
-        <Card className="border-l-4 border-l-axis-clay p-7 sm:p-9">
+        <Card data-testid="how-help-card" tone="dark" className="overflow-hidden rounded-[2.5rem] p-7 sm:p-9">
           <h2 className="text-2xl font-bold">{m.how.helpTitle}</h2>
-          <p className="mt-3 max-w-3xl leading-7 text-axis-body">{m.how.helpBody}</p>
+          <p className="mt-3 max-w-3xl leading-7 text-axis-surface/80">{m.how.helpBody}</p>
         </Card>
       </section>
     </>
