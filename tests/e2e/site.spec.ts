@@ -133,7 +133,7 @@ test('o destaque da Home usa a tela Hoje e alinha o texto ao topo no desktop', a
   expect(copyBox).not.toBeNull();
   expect(previewBox).not.toBeNull();
   expect(Math.abs((copyBox?.y ?? 0) - (previewBox?.y ?? 0))).toBeLessThanOrEqual(1);
-  await expect(heroImage).toHaveAttribute('src', /\/1\.5\.24\/01-hoje\.webp$/);
+  await expect(heroImage).toHaveAttribute('src', /\/1\.5\.56\/01-hoje\.webp$/);
 
   const mockupStyle = await page.getByTestId('home-phone-mockup').evaluate((element) => {
     const style = getComputedStyle(element);

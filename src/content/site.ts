@@ -31,10 +31,10 @@ export const navigation = [
 ] as const;
 
 export const screenshots = [
-  { src: '/media/app-pt-BR/thais-vieira/1.5.24/01-hoje.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.24/thumbs/01-hoje.webp', translationItem: 1 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.24/02-compass.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.24/thumbs/02-compass.webp', translationItem: 2 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.24/03-cofre-de-pensamentos.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.24/thumbs/03-cofre-de-pensamentos.webp', translationItem: 3 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.24/04-momento-rapido.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.24/thumbs/04-momento-rapido.webp', translationItem: 4 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.24/05-diario.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.24/thumbs/05-diario.webp', translationItem: 5 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.24/06-perfil-thais-vieira.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.24/thumbs/06-perfil-thais-vieira.webp', translationItem: 6 },
+  { src: '/media/app-pt-BR/thais-vieira/1.5.56/01-hoje.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/01-hoje.webp', translationItem: 1 },
+  { src: '/media/app-pt-BR/thais-vieira/1.5.56/02-compass.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/02-compass.webp', translationItem: 2 },
+  { src: '/media/app-pt-BR/thais-vieira/1.5.56/03-cofre-de-pensamentos.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/03-cofre-de-pensamentos.webp', translationItem: 3 },
+  { src: '/media/app-pt-BR/thais-vieira/1.5.56/04-padroes.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/04-padroes.webp', translationItem: 4 },
+  { src: '/media/app-pt-BR/thais-vieira/1.5.56/05-diario.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/05-diario.webp', translationItem: 5 },
+  { src: '/media/app-pt-BR/thais-vieira/1.5.56/06-perfil-thais-vieira.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/06-perfil-thais-vieira.webp', translationItem: 6 },
 ] as const;

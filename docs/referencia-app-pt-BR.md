@@ -1,18 +1,11 @@
 # Referência do aplicativo em português
 
-Data da captura: 19/09/2026. Aplicativo Android 1.5.24, build 33.
+Capturas de09/10/2026, aplicativo Android1.5.56/build65. Perfil fictício de Thais Vieira.
 
-As imagens em `public/media/app-pt-BR/thais-vieira/1.5.24/` documentam, em ordem:
+Galeria vigente em `public/media/app-pt-BR/thais-vieira/1.5.56/`: Hoje, Opções de conversa, Cofre de pensamentos, Padrões, Diário e Você. Imagens completas1080×2400 e miniaturas720×1600, com proporção original e sem recortes.
 
-1. Home “Hoje” com o perfil de Thais Vieira e os atalhos atuais;
-2. painel Compass com opções de conversa sob escolha da pessoa;
-3. Cofre de pensamentos para ideias e rascunhos locais;
-4. Momento rápido registrado;
-5. Diário com o registro guardado localmente;
-6. perfil de Thais Vieira e pessoa de confiança opcional.
+A Home e a galeria usam o novo conjunto. Layout, comportamento do álbum, textos institucionais/jurídicos, configuração e links preservados. Somente as legendas de Padrões/Diário e a referência de versão nos cinco idiomas ativos foram ajustadas para corresponder às imagens.
 
-Cada captura possui uma imagem WebP completa e uma miniatura em `thumbs/`. O
-zoom pode ser fechado por toque, teclado ou pelo botão visível do diálogo.
+Atualização local, sem commit/push ou publicação conforme pedido. QR code de acesso à loja adiado até o envio à produção, sem alterar o QR PIX existente. Estas imagens não substituem revisão jurídica nem comprovam publicação da versão.
 
-As capturas são evidência da interface implementada e não substituem a revisão
-dos documentos jurídicos vigentes.
+[Validação desta atualização](qa/2026-10-09-imagens-1.5.56.md).

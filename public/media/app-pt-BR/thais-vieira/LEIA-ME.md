@@ -1,17 +1,12 @@
 # Jornada visual — Thais Vieira
 
-O conjunto vigente está em `1.5.24/` e corresponde ao aplicativo Android
-1.5.24, build 33, usando o perfil de demonstração de Thais Vieira.
+Conjunto vigente: `1.5.56/`, aplicativo Android1.5.56/build65, capturado em09/10/2026 no perfil fictício de Thais Vieira.
 
-## Sequência
+1. `01-hoje.webp` — Hoje com foto e atalhos.
+2. `02-compass.webp` — Opções de conversa.
+3. `03-cofre-de-pensamentos.webp` — Cofre de pensamentos.
+4. `04-padroes.webp` — período de7dias e humor informado.
+5. `05-diario.webp` — relatos de exemplo guardados localmente.
+6. `06-perfil-thais-vieira.webp` — Você, perfil e preferências.
 
-1. `01-hoje.webp` — Home com a foto de Thais e os atalhos atuais.
-2. `02-compass.webp` — opções de conversa sob escolha da pessoa.
-3. `03-cofre-de-pensamentos.webp` — ideias e rascunhos mantidos localmente.
-4. `04-momento-rapido.webp` — Momento rápido registrado.
-5. `05-diario.webp` — Diário com o registro guardado localmente.
-6. `06-perfil-thais-vieira.webp` — perfil e pessoa de confiança opcional.
-
-As imagens completas têm 1080 px de largura. A subpasta `thumbs/` contém
-versões de 720 px para a galeria; a imagem completa é carregada somente no
-destaque da Home ou quando uma captura é ampliada.
+WebP completo1080×2400; miniaturas720×1600 em `thumbs/`, abaixo de70KB. Conversão proporcional, sem recorte ou achatamento. Fontes: `axismind-app/output/store/screenshots/1.5.56-build65/`. A galeria mantém seis imagens e o layout existente. Versões anteriores preservadas.
