@@ -19,6 +19,14 @@ test('todas as rotas públicas carregam seu conteúdo principal', async ({ page 
   }
 });
 
+test('rodapé aponta para o site pessoal do criador', async ({ page }) => {
+  await page.goto('/');
+  const credit = page.getByRole('contentinfo').getByRole('link', { name: 'by remnant void' });
+  await expect(credit).toHaveAttribute('href', 'https://natanael-vieira.github.io/remnantvoid-page/');
+  await expect(page.getByRole('contentinfo').locator('img[src*="remnantvoid-symbol-black.png"]')).toHaveCount(0);
+  await expect(page.getByRole('banner').getByText('by remnant void')).toBeVisible();
+});
+
 for (const locale of locales) {
   test(`todas as rotas públicas funcionam em ${locale}`, async ({ page }) => {
     for (const [route] of routes) {

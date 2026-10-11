@@ -7,6 +7,7 @@ export const site = {
   controller: 'Natanael Sales Vieira',
   controllerLocation: 'Palhoça, Santa Catarina, Brasil',
   privacyEmail: 'natnaelsales@gmail.com',
+  creatorSite: 'https://natanael-vieira.github.io/remnantvoid-page/',
   minimumAge: 18,
   legalVersion: '2026-09-13.1',
   legalEffectiveDate: '2026-09-13',
