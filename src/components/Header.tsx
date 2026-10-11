@@ -31,7 +31,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-axis-line/70 bg-axis-canvas/90 backdrop-blur-xl">
       <div className="axis-container flex min-h-20 items-center justify-between gap-6">
         <div className="flex shrink-0 flex-col items-start">
-          <Link href="/" className="focus-ring block rounded-full">
+          <Link href="/" className="focus-ring inline-flex rounded-full">
             <BrandMark />
           </Link>
           <span className="-mt-2 pl-[54px] text-[10px] leading-3 tracking-wide text-axis-body">by remnant void</span>
