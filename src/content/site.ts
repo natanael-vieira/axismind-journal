@@ -21,6 +21,18 @@ export const site = {
 export const publicPath = (path: string) =>
   `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}${path}`;
 
+export const playStore = {
+  url: 'https://play.google.com/store/apps/details?id=com.axismind.app',
+  qrCode: '/brand/play-store-qrcode.png',
+  badges: {
+    'pt-BR': '/brand/google-play-badge-pt-br.png',
+    en: '/brand/google-play-badge-en.png',
+    es: '/brand/google-play-badge-es.png',
+    it: '/brand/google-play-badge-it.png',
+    fr: '/brand/google-play-badge-fr.png',
+  },
+} as const;
+
 export const navigation = [
   { href: '/', label: 'Início' },
   { href: '/como-usar/', label: 'Como usar' },

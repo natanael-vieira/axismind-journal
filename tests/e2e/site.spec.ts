@@ -128,12 +128,23 @@ test('o destaque da Home usa a tela Hoje e alinha o texto ao topo no desktop', a
 
   const copyBox = await page.getByTestId('home-hero-copy').boundingBox();
   const previewBox = await page.getByTestId('home-hero-preview').boundingBox();
-  const heroImage = page.getByTestId('home-hero-preview').getByRole('img');
+  const heroImage = page.getByTestId('home-phone-mockup').getByRole('img');
 
   expect(copyBox).not.toBeNull();
   expect(previewBox).not.toBeNull();
   expect(Math.abs((copyBox?.y ?? 0) - (previewBox?.y ?? 0))).toBeLessThanOrEqual(1);
   await expect(heroImage).toHaveAttribute('src', /\/1\.5\.56\/01-hoje\.webp$/);
+  const storeLink = page.getByTestId('home-play-store-link');
+  await expect(storeLink).toHaveAttribute('href', 'https://play.google.com/store/apps/details?id=com.axismind.app');
+  await expect(storeLink.getByRole('img')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Disponível no Google Play' }).getByRole('img')).toHaveAttribute('src', /\/brand\/google-play-badge-pt-br\.png$/);
+
+  const phoneBox = await page.getByTestId('home-phone-mockup').boundingBox();
+  const qrBox = await storeLink.getByRole('img').boundingBox();
+  expect(phoneBox).not.toBeNull();
+  expect(qrBox).not.toBeNull();
+  expect((qrBox?.x ?? 0)).toBeGreaterThan((phoneBox?.x ?? 0) + (phoneBox?.width ?? 0));
+  expect((phoneBox?.width ?? 0)).toBeLessThan(280);
 
   const mockupStyle = await page.getByTestId('home-phone-mockup').evaluate((element) => {
     const style = getComputedStyle(element);

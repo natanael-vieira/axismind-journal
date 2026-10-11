@@ -6,7 +6,7 @@ import { ArrowRight, DeviceMobile, FilePdf, LockKey, Waveform } from '@phosphor-
 import { ScreenshotGallery } from '@/components/ScreenshotGallery';
 import { Card } from '@/components/ui/card';
 import { buttonVariants } from '@/components/ui/button';
-import { publicPath, screenshots } from '@/content/site';
+import { playStore, publicPath, screenshots } from '@/content/site';
 import { useI18n } from '@/i18n/LocaleProvider';
 
 const features = [
@@ -17,7 +17,7 @@ const features = [
 ] as const;
 
 export default function HomePage() {
-  const { messages: m } = useI18n();
+  const { locale, messages: m } = useI18n();
   return (
     <>
       <section className="axis-container grid min-h-[760px] gap-12 py-16 lg:grid-cols-[.9fr_1.1fr] lg:items-start lg:py-24">
@@ -33,10 +33,20 @@ export default function HomePage() {
         </div>
         <Card data-testid="home-hero-preview" className="overflow-hidden p-5 sm:p-8">
           <div data-testid="home-preview-color-rule" className="wave-rule mb-6" aria-hidden="true" />
-          <div className="flex justify-center">
-            <div data-testid="home-phone-mockup" className="phone-mockup">
+          <div className="flex flex-col items-center justify-center gap-8 sm:flex-row sm:justify-between sm:gap-5">
+            <div data-testid="home-phone-mockup" className="phone-mockup order-2 sm:order-1">
               <span className="phone-mockup-speaker" aria-hidden="true" />
               <Image src={publicPath(screenshots[0].src)} width={1080} height={2400} alt={m.gallery.item1Alt} loading="eager" fetchPriority="high" className="phone-mockup-screen" />
+            </div>
+            <div className="order-1 flex max-w-52 flex-col items-center text-center sm:order-2">
+              <p className="text-lg font-bold text-axis-ink">{m.home.playStoreTitle}</p>
+              <p className="mt-2 text-sm leading-6 text-axis-body">{m.home.playStoreHint}</p>
+              <a data-testid="home-play-store-link" href={playStore.url} target="_blank" rel="noopener noreferrer" className="focus-ring mt-5 rounded-2xl bg-white p-3 shadow-md transition-transform hover:-translate-y-1">
+                <Image src={publicPath(playStore.qrCode)} width={192} height={192} alt={m.home.playStoreQrAlt} className="h-44 w-44" />
+              </a>
+              <a href={playStore.url} target="_blank" rel="noopener noreferrer" className="focus-ring mt-2 rounded-md">
+                <Image src={publicPath(playStore.badges[locale])} width={646} height={250} alt={m.home.playStoreBadgeAlt} className="h-auto w-48" />
+              </a>
             </div>
           </div>
         </Card>
