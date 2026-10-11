@@ -19,6 +19,14 @@ test('todas as rotas públicas carregam seu conteúdo principal', async ({ page 
   }
 });
 
+test('rodapé aponta para o site pessoal do criador', async ({ page }) => {
+  await page.goto('/');
+  const credit = page.getByRole('contentinfo').getByRole('link', { name: 'by remnant void' });
+  await expect(credit).toHaveAttribute('href', 'https://natanael-vieira.github.io/remnantvoid-page/');
+  await expect(credit.locator('img')).toHaveAttribute('src', /\/brand\/remnantvoid-symbol-black\.png$/);
+  await expect(page.getByRole('banner').getByText('by remnant void')).toBeVisible();
+});
+
 for (const locale of locales) {
   test(`todas as rotas públicas funcionam em ${locale}`, async ({ page }) => {
     for (const [route] of routes) {
@@ -155,7 +163,7 @@ test('o destaque da Home usa a tela Hoje e alinha o texto ao topo no desktop', a
   expect(parseFloat(mockupStyle.borderWidth)).toBeGreaterThanOrEqual(6);
   expect(parseFloat(mockupStyle.borderRadius)).toBeGreaterThanOrEqual(40);
   await expect(page.getByTestId('home-preview-color-rule')).toBeVisible();
-  expect(previewStyle).toBe('none');
+  expect(previewStyle).toContain('linear-gradient');
 });
 
 test('a galeria amplia e fecha uma captura mantendo a navegação por teclado', async ({ page }) => {

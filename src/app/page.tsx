@@ -31,7 +31,7 @@ export default function HomePage() {
           </div>
           <p className="mt-6 max-w-xl text-sm leading-6 text-axis-body">{m.home.disclaimer}</p>
         </div>
-        <Card data-testid="home-hero-preview" className="overflow-hidden p-5 sm:p-8">
+        <Card data-testid="home-hero-preview" className="glass-hero overflow-hidden p-5 sm:p-8">
           <div data-testid="home-preview-color-rule" className="wave-rule mb-6" aria-hidden="true" />
           <div className="flex flex-col items-center justify-center gap-8 sm:flex-row sm:justify-between sm:gap-5">
             <div data-testid="home-phone-mockup" className="phone-mockup order-2 sm:order-1">

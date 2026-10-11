@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 type CardProps = HTMLAttributes<HTMLDivElement> & { tone?: 'default' | 'dark' };
 
 export function Card({ className, tone = 'default', ...props }: CardProps) {
-  return <div data-slot="card" className={cn('rounded-axis', tone === 'dark' ? 'border-0 bg-axis-ink text-axis-surface shadow-none' : 'border border-axis-line/80 bg-axis-surface/90 shadow-soft backdrop-blur-sm', className)} {...props} />;
+  return <div data-slot="card" className={cn('rounded-axis', tone === 'dark' ? 'border-0 bg-axis-ink text-axis-surface shadow-none' : 'glass-card border', className)} {...props} />;
 }
 
 export function CardHeader({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
