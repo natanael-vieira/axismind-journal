@@ -59,7 +59,8 @@ a { color: inherit; }
 .phone-mockup {
   position: relative;
   z-index: 1;
-  width: min(100%, 19.5rem);
+  width: min(100%, 15.5rem);
+  flex: none;
   padding: .48rem;
   border: .5rem solid #263237;
   border-radius: 3.25rem;
@@ -132,7 +133,7 @@ html[dir='rtl'] .screenshot-lightbox-close { right: auto; left: .75rem; }
 }
 
 @media (max-width: 639px) {
-  .phone-mockup { width: min(100%, 17.5rem); border-width: .42rem; border-radius: 2.85rem; }
+  .phone-mockup { width: min(100%, 15.5rem); border-width: .42rem; border-radius: 2.85rem; }
   .phone-mockup::before { border-radius: 2.25rem; }
   .phone-mockup-screen { border-radius: 2.08rem; }
   .screenshot-lightbox-nav { top: auto; bottom: .65rem; min-height: 3rem; width: 3rem; transform: none; }

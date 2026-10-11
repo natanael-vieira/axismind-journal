@@ -11,7 +11,10 @@ export function Footer() {
     <footer className="mt-24 border-t border-axis-line bg-axis-surface">
       <div className="axis-container grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-4">
-          <BrandMark compact />
+          <div className="flex flex-col items-start">
+            <BrandMark compact />
+            <a href={site.creatorSite} target="_blank" rel="noopener noreferrer" className="focus-ring -mt-1 ml-[46px] rounded-sm text-[10px] leading-3 tracking-wide text-axis-body underline-offset-4 hover:text-axis-teal hover:underline">by remnant void</a>
+          </div>
           <p className="max-w-md text-sm leading-6 text-axis-body">
             {m.footer.description}
           </p>
