@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const outputDir = path.join(process.cwd(), 'out');
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-const routes = ['/', '/como-usar/', '/seguranca/', '/privacidade/', '/termos/', '/apoie/'];
+const routes = ['/', '/como-usar/', '/seguranca/', '/privacidade/', '/exclusao-de-conta/', '/termos/', '/apoie/'];
 
 const htmlByRoute = routes.map((route) => {
   const file = route === '/'

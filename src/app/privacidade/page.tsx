@@ -1,7 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import { LegalArticle } from '@/components/LegalArticle';
 import { PageIntro } from '@/components/PageIntro';
+import { accountDeletionCopy } from '@/content/account-deletion';
 import { legalStatus } from '@/content/legal-status';
 import { site } from '@/content/site';
 import { useI18n } from '@/i18n/LocaleProvider';
@@ -22,7 +24,7 @@ export default function PrivacyPage() {
         <section><h2>{m.privacy.s3}</h2><p>{m.privacy.body3}</p></section>
         <section><h2>{m.privacy.s4}</h2><p>{m.privacy.body4}</p></section>
         <section><h2>{m.privacy.s5}</h2><p>{m.privacy.body5}</p></section>
-        <section><h2>{m.privacy.s6}</h2><p>{translate(m.privacy.body6, variables)}</p></section>
+        <section><h2>{m.privacy.s6}</h2><p>{translate(m.privacy.body6, variables)}</p><p className="mt-4"><Link href="/exclusao-de-conta/" className="focus-ring rounded-sm font-bold text-axis-teal underline underline-offset-4">{accountDeletionCopy[locale].privacyLink}</Link></p></section>
         <section><h2>{m.privacy.s7}</h2><p>{m.privacy.body7}</p></section>
         <section><h2>{m.privacy.s8}</h2><p>{translate(m.privacy.body8, variables)}</p></section>
       </LegalArticle>
