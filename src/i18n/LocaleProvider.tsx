@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { accountDeletionCopy } from '@/content/account-deletion';
 import { interpolate, isRtl, messages, type Locale, type Messages } from './messages';
 
 type LocaleContextValue = {
@@ -39,6 +40,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
       'como-usar': messages[locale].meta.howTitle,
       seguranca: messages[locale].meta.securityTitle,
       privacidade: messages[locale].meta.privacyTitle,
+      'exclusao-de-conta': accountDeletionCopy[locale].title,
       termos: messages[locale].meta.termsTitle,
       apoie: messages[locale].meta.supportTitle,
     };

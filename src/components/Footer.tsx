@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { BrandMark } from './BrandMark';
+import { accountDeletionCopy } from '@/content/account-deletion';
 import { site } from '@/content/site';
 import { useI18n } from '@/i18n/LocaleProvider';
 
 export function Footer() {
-  const { messages: m } = useI18n();
+  const { locale, messages: m } = useI18n();
   return (
     <footer className="mt-24 border-t border-axis-line bg-axis-surface">
       <div className="axis-container grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
@@ -25,6 +26,7 @@ export function Footer() {
             <li><Link href="/como-usar/">{m.navigation.how}</Link></li>
             <li><Link href="/seguranca/">{m.navigation.security}</Link></li>
             <li><Link href="/privacidade/">{m.navigation.privacy}</Link></li>
+            <li><Link href="/exclusao-de-conta/">{accountDeletionCopy[locale].footerLink}</Link></li>
             <li><Link href="/termos/">{m.footer.terms}</Link></li>
           </ul>
         </div>
