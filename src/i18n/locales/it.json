@@ -138,13 +138,13 @@
     "control3Title": "Backup del sistema bloccato",
     "control3Body": "Le regole Android impediscono che i contenuti delle app private entrino nel backup automatico o nell'estrazione ordinaria dei dati.",
     "control4Title": "Build Android analizzato",
-    "control4Body": "L’APK firmato 2.2.1, build 94, è stato sottoposto ad analisi statica locale con MobSF 4.5.2 il 23 ottobre 2026. Anche l’inventario JavaScript è stato verificato nel database npm.",
+    "control4Body": "L’APK firmato 2.2.1, build 94, è stato sottoposto ad analisi statica locale con MobSF 4.5.3 il 23 ottobre 2026. Anche l’inventario JavaScript è stato verificato nel database npm.",
     "resultEyebrow": "Analisi automatizzata locale",
     "resultTitle": "Cosa ha trovato l’analisi statica",
     "stat1": "tracker della privacy rilevati nell'APK analizzato",
     "stat2": "risultati sulla configurazione di rete segnalati dallo scanner",
     "stat3": "combinazioni di pacchetto e versione verificate nel database npm",
-    "resultDisclaimer": "MobSF ha segnalato 3 avvisi di gravità alta e 15 avvertenze. La lettura del manifesto ha presentato limiti; versione e livelli SDK sono stati verificati direttamente nell’APK. La ricerca npm ha rilevato 13 occorrenze di avvisi nell’inventario, che comprende strumenti di sviluppo; le relative correzioni nell’app restano da applicare. Questa analisi statica non è una certificazione né garantisce l’assenza di vulnerabilità. Restano necessarie la conferma dei rischi sfruttabili e le prove manuali.",
+    "resultDisclaimer": "MobSF ha segnalato 2 avvisi di gravità alta e 14 avvertenze. Gli avvisi di gravità alta riguardano il supporto ad Android meno recente e l’uso di CBC nelle librerie. Versione e livelli SDK sono stati identificati correttamente. La ricerca npm ha rilevato 13 occorrenze di avvisi nell’inventario, che comprende strumenti di sviluppo; le relative correzioni nell’app restano da applicare. Questa analisi statica non è una certificazione né garantisce l’assenza di vulnerabilità. Restano necessarie la conferma dei rischi sfruttabili e le prove manuali.",
     "tool": "Strumento utilizzato:"
   },
   "footer": {

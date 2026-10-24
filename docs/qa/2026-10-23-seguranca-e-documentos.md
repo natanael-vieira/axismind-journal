@@ -37,6 +37,47 @@ já presente no remoto foi preservada.
   permissões exigem triagem contextual. O scan estático não substitui os testes
   de limpeza de arquivos, cancelamento, interrupção e permissões em aparelho.
 
+## Repetição com MobSF 4.5.3 — mesmo APK
+
+Executada em23/10/2026, após atualizar a ferramenta. A interface e o scorecard
+confirmaram `v4.5.3`; SHA-256 idêntico ao da análise anterior. Nenhum código,
+versão ou binário do aplicativo mudou entre os testes. Relatórios brutos antigos
+e novos preservados separadamente e fora do versionamento.
+
+| Métrica | MobSF 4.5.2 | MobSF 4.5.3 |
+| --- | ---: | ---: |
+| Score bruto | 52/100 | 55/100 |
+| Alertas altos | 3 | 2 |
+| Avisos | 15 | 14 |
+| Informativos | 2 | 2 |
+| Trackers detectados | 0 | 0 |
+| Assinaturas de trackers | 432 | 432 |
+| Achados de configuração de rede | 0 | 0 |
+| Versão / código | não preenchidos | 2.2.1 / 94 |
+| minSdk / targetSdk | não preenchidos | 24 / 36 |
+
+A nova análise não registrou exceções internas e identificou corretamente o
+manifesto. Os dois alertas StrandHogg e o aviso de launchMode desapareceram;
+passou a constar o alerta alto de instalação em Android7/API24 sem correções.
+A melhoria do score representa diferença na análise, não uma correção no app.
+
+Retificação da triagem inicial de CBC: `z22` é uma classe agrupada pelo R8;
+o cabeçalho Google Identity Credentials não identifica a origem de todos os
+métodos. O fonte descompilado `z22.i()` usa a chave `androidxBiometric` e o mapping
+liga o método a `androidx.biometric.CryptoObjectUtils.createFakeCryptoObject`.
+O outro trecho é `Media3 HLS Aes128DataSource`. Não foi identificada nesses dois
+trechos a rotina própria de cópia cifrada, que usa Argon2id/AES-256-GCM.
+Isso contextualiza o alerta, sem dispensar revisão de alcance e versões das libs.
+
+A página pública foi atualizada para4.5.3, dois alertas altos e14avisos nos cinco
+idiomas. Os13achados npm são uma consulta separada, não somados aos14avisos.
+Regressão de proveniência/contagem falhou antes da atualização e passou depois;
+34unitários e tipos aprovados sem reinstalar dependências (ferramentas locais
+compartilhadas por symlink temporário, removido ao terminar; oCI valida o lockfile
+doPR). O alerta crítico de shell-quote chega por `react-native > react-devtools-core`;
+o alcance no release requer triagem, sem confundir ferramenta de desenvolvimento
+com exploração confirmada do APK. Os gates remotos do commit anterior passaram.
+
 ## Inventário JavaScript do aplicativo
 
 Consulta npm bulk em 24/10/2026 UTC (23/10 no Brasil), `yarn.lock` SHA-256

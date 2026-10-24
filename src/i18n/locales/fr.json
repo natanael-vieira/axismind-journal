@@ -138,13 +138,13 @@
     "control3Title": "Sauvegarde système bloquée",
     "control3Body": "Les règles Android empêchent le contenu privé d’entrer dans la sauvegarde automatique ou l’extraction ordinaire.",
     "control4Title": "Build Android analysé",
-    "control4Body": "L’APK signé 2.2.1, build 94, a fait l’objet d’une analyse statique locale avec MobSF 4.5.2 le 23 octobre 2026. L’inventaire JavaScript a également été vérifié dans la base npm.",
+    "control4Body": "L’APK signé 2.2.1, build 94, a fait l’objet d’une analyse statique locale avec MobSF 4.5.3 le 23 octobre 2026. L’inventaire JavaScript a également été vérifié dans la base npm.",
     "resultEyebrow": "Analyse automatisée locale",
     "resultTitle": "Ce que l’analyse statique a trouvé",
     "stat1": "traceurs de confidentialité détectés dans l’APK analysé",
     "stat2": "résultats de configuration réseau signalés par le scanner",
     "stat3": "combinaisons de paquet et de version vérifiées dans la base npm",
-    "resultDisclaimer": "MobSF a signalé 3 alertes élevées et 15 avertissements. La lecture du manifeste a présenté des limites ; la version et les niveaux de SDK ont été vérifiés directement dans l’APK. La requête npm a relevé 13 occurrences d’avis dans l’inventaire, qui comprend des outils de développement ; leur correction reste à effectuer dans l’application. Cette analyse statique ne constitue ni une certification ni une garantie d’absence de vulnérabilités. La confirmation des risques exploitables et les tests manuels restent nécessaires.",
+    "resultDisclaimer": "MobSF a signalé 2 alertes élevées et 14 avertissements. Les alertes élevées concernent la prise en charge d’anciennes versions d’Android et l’utilisation de CBC dans des bibliothèques. La version et les niveaux de SDK ont été identifiés correctement. La requête npm a relevé 13 occurrences d’avis dans l’inventaire, qui comprend des outils de développement ; leur correction reste à effectuer dans l’application. Cette analyse statique ne constitue ni une certification ni une garantie d’absence de vulnérabilités. La confirmation des risques exploitables et les tests manuels restent nécessaires.",
     "tool": "Outil utilisé :"
   },
   "footer": {

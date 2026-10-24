@@ -138,13 +138,13 @@
     "control3Title": "Copia del sistema bloqueada",
     "control3Body": "Las reglas de Android impiden que el contenido privado entre en la copia automática o en la extracción común de datos.",
     "control4Title": "Build Android analizado",
-    "control4Body": "El APK firmado 2.2.1, build 94, pasó por un análisis estático local con MobSF 4.5.2 el 23 de octubre de 2026. El inventario JavaScript también se consultó en la base npm.",
+    "control4Body": "El APK firmado 2.2.1, build 94, pasó por un análisis estático local con MobSF 4.5.3 el 23 de octubre de 2026. El inventario JavaScript también se consultó en la base npm.",
     "resultEyebrow": "Análisis automatizado local",
     "resultTitle": "Qué encontró el análisis estático",
     "stat1": "rastreadores de privacidad detectados en el APK analizado",
     "stat2": "hallazgos de configuración de red informados por el escáner",
     "stat3": "combinaciones de paquete y versión consultadas en la base npm",
-    "resultDisclaimer": "MobSF informó 3 alertas altas y 15 advertencias. La lectura del manifiesto tuvo limitaciones; la versión y los niveles de SDK se comprobaron directamente en el APK. La consulta npm encontró 13 apariciones de avisos en el inventario, que incluye herramientas de desarrollo; su corrección sigue pendiente en la app. Este análisis estático no es una certificación ni garantiza la ausencia de vulnerabilidades. Sigue siendo necesario confirmar los riesgos explotables y realizar pruebas manuales.",
+    "resultDisclaimer": "MobSF informó 2 alertas altas y 14 advertencias. Las alertas altas se refieren al soporte de Android antiguo y al uso de CBC en bibliotecas. La versión y los niveles de SDK se identificaron correctamente. La consulta npm encontró 13 apariciones de avisos en el inventario, que incluye herramientas de desarrollo; su corrección sigue pendiente en la app. Este análisis estático no es una certificación ni garantiza la ausencia de vulnerabilidades. Sigue siendo necesario confirmar los riesgos explotables y realizar pruebas manuales.",
     "tool": "Herramienta utilizada:"
   },
   "footer": {

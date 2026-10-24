@@ -50,6 +50,8 @@ describe('destaques visuais das páginas', () => {
     expect(within(resultCard).getByText('1199')).toBeInTheDocument();
     expect(within(resultCard).getByText(/13 ocorrências de advisories/)).toBeInTheDocument();
     expect(screen.getByText(/APK assinado 2.2.1, build 94/)).toBeInTheDocument();
+    expect(screen.getByText(/MobSF 4\.5\.3/)).toBeInTheDocument();
+    expect(within(resultCard).getByText(/2 alertas altos e 14 avisos/)).toBeInTheDocument();
     expect(within(resultCard).queryByTestId('security-result-accent-peach')).not.toBeInTheDocument();
     expect(within(resultCard).queryByTestId('security-result-accent-teal')).not.toBeInTheDocument();
   });
