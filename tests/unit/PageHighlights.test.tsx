@@ -10,9 +10,11 @@ describe('destaques visuais das páginas', () => {
   it('publica a política vigente com áudio opcional e limites do CSV', () => {
     render(<PrivacyPage />);
 
-    expect(screen.getByText('Versão 2026-10-16.1 · vigente desde 16/10/2026')).toBeInTheDocument();
-    expect(screen.getByText(/áudio.*escolher.*cofre criptografado/)).toBeInTheDocument();
+    expect(screen.getByText('Versão 2026-10-24.1 · vigente desde 24/10/2026')).toBeInTheDocument();
+    expect(screen.getByText(/Ao escolher salvar só áudio no Diário ou no Cofre de pensamentos/)).toBeInTheDocument();
     expect(screen.getByText(/CSV.*sem senha/)).toBeInTheDocument();
+    expect(screen.getByText(/Transcrever depois não exclui esse áudio/)).toBeInTheDocument();
+    expect(screen.getByText(/aviso semanal de backup.*adiado ou desativado/)).toBeInTheDocument();
   });
 
   it('mantém os Termos na versão aceita pelo aplicativo', () => {

@@ -11,8 +11,8 @@ export const site = {
   minimumAge: 18,
   termsVersion: '2026-09-08.1',
   termsEffectiveDate: '2026-09-08',
-  privacyVersion: '2026-10-16.1',
-  privacyEffectiveDate: '2026-10-16',
+  privacyVersion: '2026-10-24.1',
+  privacyEffectiveDate: '2026-10-24',
   support: {
     enabled: true,
     beneficiary: 'Natanael Sales Vieira',
