@@ -4,8 +4,8 @@ Site institucional do axismind, um diário pessoal local-first para registrar
 experiências, rotina e anotações.
 
 As capturas verificadas do aplicativo em português estão em
-`public/media/app-pt-BR/thais-vieira/1.5.56/`. Elas documentam a versão Android
-1.5.56 com o perfil de demonstração de Thais Vieira. A Home usa a captura em
+`public/media/app-pt-BR/thais-vieira/2.2.1/`. Elas documentam a versão Android
+2.2.1 com o perfil de demonstração de Thais Vieira. A Home usa a captura em
 WebP completa; a galeria usa miniaturas próprias e só carrega a imagem completa
 quando a pessoa decide ampliá-la.
 
@@ -48,5 +48,9 @@ CodeQL, revisão de dependências e atualizações semanais pelo Dependabot. Con
 
 Antes de enviar alterações, execute `yarn typecheck`, `yarn build` e, quando
 houver acesso ao registro de pacotes, `yarn audit --groups dependencies`.
+
+A revisão de 23/10/2026, incluindo versões dos documentos, MobSF do app 2.2.1 / 94,
+patches e alertas restantes, está em
+[`docs/qa/2026-10-23-seguranca-e-documentos.md`](docs/qa/2026-10-23-seguranca-e-documentos.md).
 
 Não publique CPF, endereço residencial, senhas, tokens, dados de cartão ou chaves privadas neste repositório.

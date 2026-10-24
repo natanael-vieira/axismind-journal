@@ -67,7 +67,7 @@ export default function SecurityPage() {
               </span>
             </div>
             <div className="rounded-[1.5rem] border border-axis-surface/15 bg-axis-surface/10 p-5">
-              <strong className="block text-3xl text-axis-peach">1.142</strong>
+              <strong className="block text-3xl text-axis-peach">1199</strong>
               <span className="mt-2 block text-sm leading-6 text-axis-surface/75">
                 {m.security.stat3}
               </span>

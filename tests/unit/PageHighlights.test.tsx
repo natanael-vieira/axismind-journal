@@ -3,8 +3,24 @@ import { describe, expect, it } from 'vitest';
 import HomePage from '@/app/page';
 import HowToPage from '@/app/como-usar/page';
 import SecurityPage from '@/app/seguranca/page';
+import PrivacyPage from '@/app/privacidade/page';
+import TermsPage from '@/app/termos/page';
 
 describe('destaques visuais das páginas', () => {
+  it('publica a política vigente com áudio opcional e limites do CSV', () => {
+    render(<PrivacyPage />);
+
+    expect(screen.getByText('Versão 2026-10-16.1 · vigente desde 16/10/2026')).toBeInTheDocument();
+    expect(screen.getByText(/áudio.*escolher.*cofre criptografado/)).toBeInTheDocument();
+    expect(screen.getByText(/CSV.*sem senha/)).toBeInTheDocument();
+  });
+
+  it('mantém os Termos na versão aceita pelo aplicativo', () => {
+    render(<TermsPage />);
+
+    expect(screen.getByText('Versão 2026-09-08.1 · vigente desde 08/09/2026')).toBeInTheDocument();
+  });
+
   it('mantém a captura principal da Home em um card claro com faixa colorida', () => {
     render(<HomePage />);
 
@@ -31,6 +47,9 @@ describe('destaques visuais das páginas', () => {
     const resultCard = screen.getByTestId('security-result-card');
 
     expect(resultCard).toHaveClass('bg-axis-ink', 'text-axis-surface');
+    expect(within(resultCard).getByText('1199')).toBeInTheDocument();
+    expect(within(resultCard).getByText(/13 ocorrências de advisories/)).toBeInTheDocument();
+    expect(screen.getByText(/APK assinado 2.2.1, build 94/)).toBeInTheDocument();
     expect(within(resultCard).queryByTestId('security-result-accent-peach')).not.toBeInTheDocument();
     expect(within(resultCard).queryByTestId('security-result-accent-teal')).not.toBeInTheDocument();
   });
