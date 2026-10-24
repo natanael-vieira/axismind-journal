@@ -67,7 +67,7 @@ test('oferece somente os idiomas sincronizados com o aplicativo', async ({ page 
 
 test('Política e Termos exibem versão e vigência sem aviso adicional', async ({ page }) => {
   await page.goto('/privacidade/');
-  await expect(page.getByText('Versão 2026-10-16.1 · vigente desde 16/10/2026')).toBeVisible();
+  await expect(page.getByText('Versão 2026-10-24.1 · vigente desde 24/10/2026')).toBeVisible();
   await expect(page.locator('aside[role="note"]')).toHaveCount(0);
   await expect(page.getByText(/O axismind é um diário pessoal local-first/)).toBeVisible();
   await expect(page.getByText(/Política pública: https:\/\/natanael-vieira.github.io\/axismind-journal\//)).toBeVisible();
