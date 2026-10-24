@@ -17,8 +17,8 @@ describe('conteúdo público crítico', () => {
   it('publica a versão jurídica vigente e a URL oficial do journal', () => {
     expect(site.termsVersion).toBe('2026-09-08.1');
     expect(site.termsEffectiveDate).toBe('2026-09-08');
-    expect(site.privacyVersion).toBe('2026-10-16.1');
-    expect(site.privacyEffectiveDate).toBe('2026-10-16');
+    expect(site.privacyVersion).toBe('2026-10-24.1');
+    expect(site.privacyEffectiveDate).toBe('2026-10-24');
     expect(site.url).toBe('https://natanael-vieira.github.io/axismind-journal/');
   });
 
