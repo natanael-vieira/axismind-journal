@@ -15,8 +15,10 @@ const pixGenerator = require('../../scripts/generate-pix-qr.cjs') as {
 
 describe('conteúdo público crítico', () => {
   it('publica a versão jurídica vigente e a URL oficial do journal', () => {
-    expect(site.legalVersion).toBe('2026-09-13.1');
-    expect(site.legalEffectiveDate).toBe('2026-09-13');
+    expect(site.termsVersion).toBe('2026-09-08.1');
+    expect(site.termsEffectiveDate).toBe('2026-09-08');
+    expect(site.privacyVersion).toBe('2026-10-16.1');
+    expect(site.privacyEffectiveDate).toBe('2026-10-16');
     expect(site.url).toBe('https://natanael-vieira.github.io/axismind-journal/');
   });
 
@@ -34,19 +36,19 @@ describe('conteúdo público crítico', () => {
     expect(payload.slice(-4)).toBe(pixGenerator.crc16(payloadWithoutCrc));
   });
 
-  it('publica as capturas reais da versão 1.5.56 em formatos leves para celular', () => {
+  it('publica as capturas reais da versão 2.2.1 em formatos leves para celular', () => {
     expect(screenshots.map(({ src }) => src)).toEqual([
-      '/media/app-pt-BR/thais-vieira/1.5.56/01-hoje.webp',
-      '/media/app-pt-BR/thais-vieira/1.5.56/02-compass.webp',
-      '/media/app-pt-BR/thais-vieira/1.5.56/03-cofre-de-pensamentos.webp',
-      '/media/app-pt-BR/thais-vieira/1.5.56/04-padroes.webp',
-      '/media/app-pt-BR/thais-vieira/1.5.56/05-diario.webp',
-      '/media/app-pt-BR/thais-vieira/1.5.56/06-perfil-thais-vieira.webp',
+      '/media/app-pt-BR/thais-vieira/2.2.1/01-hoje.webp',
+      '/media/app-pt-BR/thais-vieira/2.2.1/02-compass.webp',
+      '/media/app-pt-BR/thais-vieira/2.2.1/03-cofre-de-pensamentos.webp',
+      '/media/app-pt-BR/thais-vieira/2.2.1/04-padroes.webp',
+      '/media/app-pt-BR/thais-vieira/2.2.1/05-diario.webp',
+      '/media/app-pt-BR/thais-vieira/2.2.1/06-perfil-thais-vieira.webp',
     ]);
 
     let thumbnailBytes = 0;
     for (const screenshot of screenshots) {
-      expect(screenshot.thumbnailSrc).toMatch(/^\/media\/app-pt-BR\/thais-vieira\/1\.5\.56\/thumbs\/\d{2}-.+\.webp$/);
+      expect(screenshot.thumbnailSrc).toMatch(/^\/media\/app-pt-BR\/thais-vieira\/2\.2\.1\/thumbs\/\d{2}-.+\.webp$/);
 
       const fullPath = path.join(process.cwd(), 'public', screenshot.src);
       const thumbnailPath = path.join(process.cwd(), 'public', screenshot.thumbnailSrc);

@@ -67,13 +67,13 @@ test('oferece somente os idiomas sincronizados com o aplicativo', async ({ page 
 
 test('Política e Termos exibem versão e vigência sem aviso adicional', async ({ page }) => {
   await page.goto('/privacidade/');
-  await expect(page.getByText('Versão 2026-09-13.1 · vigente desde 13/09/2026')).toBeVisible();
+  await expect(page.getByText('Versão 2026-10-16.1 · vigente desde 16/10/2026')).toBeVisible();
   await expect(page.locator('aside[role="note"]')).toHaveCount(0);
   await expect(page.getByText(/O axismind é um diário pessoal local-first/)).toBeVisible();
   await expect(page.getByText(/Política pública: https:\/\/natanael-vieira.github.io\/axismind-journal\//)).toBeVisible();
 
   await page.goto('/termos/');
-  await expect(page.getByText('Versão 2026-09-13.1 · vigente desde 13/09/2026')).toBeVisible();
+  await expect(page.getByText('Versão 2026-09-08.1 · vigente desde 08/09/2026')).toBeVisible();
   await expect(page.locator('aside[role="note"]')).toHaveCount(0);
   await expect(page.getByText(/As sugestões locais servem apenas para organizar/)).toBeVisible();
 });
@@ -141,7 +141,7 @@ test('o destaque da Home usa a tela Hoje e alinha o texto ao topo no desktop', a
   expect(copyBox).not.toBeNull();
   expect(previewBox).not.toBeNull();
   expect(Math.abs((copyBox?.y ?? 0) - (previewBox?.y ?? 0))).toBeLessThanOrEqual(1);
-  await expect(heroImage).toHaveAttribute('src', /\/1\.5\.56\/01-hoje\.webp$/);
+  await expect(heroImage).toHaveAttribute('src', /\/2\.2\.1\/01-hoje\.webp$/);
   const storeLink = page.getByTestId('home-play-store-link');
   await expect(storeLink).toHaveAttribute('href', 'https://play.google.com/store/apps/details?id=com.axismind.app');
   await expect(storeLink.getByRole('img')).toBeVisible();

@@ -15,7 +15,7 @@ export default function PrivacyPage() {
   const versionLabel: Record<Locale, string> = { 'pt-BR': 'Versão', en: 'Version', es: 'Versión', it: 'Versione', fr: 'Version' };
   return (
     <>
-      <PageIntro eyebrow={`${versionLabel[locale]} ${site.legalVersion} · ${legalStatus[locale].effectiveSince}`} title={m.privacy.title}>
+      <PageIntro eyebrow={`${versionLabel[locale]} ${site.privacyVersion} · ${legalStatus[locale].privacyEffectiveSince}`} title={m.privacy.title}>
         <p>{m.privacy.intro}</p>
       </PageIntro>
       <LegalArticle>

@@ -33,12 +33,12 @@ if (!home.includes(`href="${basePath}/brand/logo.png"`)) {
   throw new Error('A Home exportada não aponta o favicon circular transparente.');
 }
 
-if (!home.includes(`src="${basePath}/media/app-pt-BR/thais-vieira/1.5.56/01-hoje.webp"`)) {
+if (!home.includes(`src="${basePath}/media/app-pt-BR/thais-vieira/2.2.1/01-hoje.webp"`)) {
   throw new Error('A Home exportada não usa a captura atual da tela Hoje.');
 }
 
-for (const file of fs.readdirSync(path.join(outputDir, 'media', 'app-pt-BR', 'thais-vieira', '1.5.56', 'thumbs'))) {
-  const bytes = fs.statSync(path.join(outputDir, 'media', 'app-pt-BR', 'thais-vieira', '1.5.56', 'thumbs', file)).size;
+for (const file of fs.readdirSync(path.join(outputDir, 'media', 'app-pt-BR', 'thais-vieira', '2.2.1', 'thumbs'))) {
+  const bytes = fs.statSync(path.join(outputDir, 'media', 'app-pt-BR', 'thais-vieira', '2.2.1', 'thumbs', file)).size;
   if (bytes > 70_000) throw new Error(`Miniatura acima do orçamento móvel: ${file} (${bytes} bytes)`);
 }
 
