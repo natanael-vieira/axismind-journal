@@ -141,7 +141,7 @@ test('o destaque da Home usa a tela Hoje e alinha o texto ao topo no desktop', a
   expect(copyBox).not.toBeNull();
   expect(previewBox).not.toBeNull();
   expect(Math.abs((copyBox?.y ?? 0) - (previewBox?.y ?? 0))).toBeLessThanOrEqual(1);
-  await expect(heroImage).toHaveAttribute('src', /\/2\.2\.1\/01-hoje\.webp$/);
+  await expect(heroImage).toHaveAttribute('src', /\/2\.5\.4\/01-hoje\.webp$/);
   const storeLink = page.getByTestId('home-play-store-link');
   await expect(storeLink).toHaveAttribute('href', 'https://play.google.com/store/apps/details?id=com.axismind.app');
   await expect(storeLink.getByRole('img')).toBeVisible();

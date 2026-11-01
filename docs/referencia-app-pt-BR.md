@@ -1,15 +1,16 @@
 # Referência do aplicativo em português
 
-Capturas atuais de 23/10/2026, Android 2.2.1 / build 94. Perfil Thais Vieira e
+Capturas atuais de 31/10/2026, Android 2.5.4 / build 113. Perfil Thais Vieira e
 foto autorizados pelo responsável; registros de demonstração.
 
-Galeria vigente em `public/media/app-pt-BR/thais-vieira/2.2.1/`: Hoje, Opções de
+Galeria vigente em `public/media/app-pt-BR/thais-vieira/2.5.4/`: Hoje, Opções de
 conversa, Cofre, Padrões, Diário e Perfil. Imagens 1080×2400 e miniaturas 240×533,
 sem recorte ou distorção. Referências da versão e descrição do período de 30 dias
 alinhadas nos cinco idiomas ativos; layout preservado.
 
-Atualização preparada em branch própria, sem publicação direta na main.
-[Imagens](qa/2026-10-23-imagens-2.2.1.md) e
+Imagens aprovadas reutilizadas em 01/11/2026: as seis telas continuam representativas.
+A origem permanece identificada como build 113, sem atribuir estas capturas à 118.
+[Imagens](qa/2026-10-31-imagens-2.5.4.md) e
 [revisão de segurança/documentos](qa/2026-10-23-seguranca-e-documentos.md).
 
 ## Histórico de 09/10/2026
