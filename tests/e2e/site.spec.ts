@@ -23,7 +23,7 @@ test('rodapé aponta para o site pessoal do criador', async ({ page }) => {
   await page.goto('/');
   const credit = page.getByRole('contentinfo').getByRole('link', { name: 'by remnant void' });
   await expect(credit).toHaveAttribute('href', 'https://natanael-vieira.github.io/remnantvoid-page/');
-  await expect(credit.locator('img')).toHaveAttribute('src', /\/brand\/remnantvoid-symbol-black\.png$/);
+  await expect(page.getByRole('contentinfo').locator('img[src*="remnantvoid-symbol-black.png"]')).toHaveCount(0);
   await expect(page.getByRole('banner').getByText('by remnant void')).toBeVisible();
 });
 

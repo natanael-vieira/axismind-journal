@@ -8,7 +8,6 @@ export const site = {
   controllerLocation: 'Palhoça, Santa Catarina, Brasil',
   privacyEmail: 'natnaelsales@gmail.com',
   creatorSite: 'https://natanael-vieira.github.io/remnantvoid-page/',
-  creatorSymbol: '/brand/remnantvoid-symbol-black.png',
   minimumAge: 18,
   legalVersion: '2026-09-13.1',
   legalEffectiveDate: '2026-09-13',
@@ -45,10 +44,10 @@ export const navigation = [
 ] as const;
 
 export const screenshots = [
-  { src: '/media/app-pt-BR/thais-vieira/1.5.56/01-hoje.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/01-hoje.webp', translationItem: 1 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.56/02-compass.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/02-compass.webp', translationItem: 2 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.56/03-cofre-de-pensamentos.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/03-cofre-de-pensamentos.webp', translationItem: 3 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.56/04-padroes.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/04-padroes.webp', translationItem: 4 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.56/05-diario.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/05-diario.webp', translationItem: 5 },
-  { src: '/media/app-pt-BR/thais-vieira/1.5.56/06-perfil-thais-vieira.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/1.5.56/thumbs/06-perfil-thais-vieira.webp', translationItem: 6 },
+  { src: '/media/app-pt-BR/thais-vieira/2.5.4/01-hoje.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/2.5.4/thumbs/01-hoje.webp', translationItem: 1 },
+  { src: '/media/app-pt-BR/thais-vieira/2.5.4/02-compass.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/2.5.4/thumbs/02-compass.webp', translationItem: 2 },
+  { src: '/media/app-pt-BR/thais-vieira/2.5.4/03-cofre-de-pensamentos.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/2.5.4/thumbs/03-cofre-de-pensamentos.webp', translationItem: 3 },
+  { src: '/media/app-pt-BR/thais-vieira/2.5.4/04-padroes.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/2.5.4/thumbs/04-padroes.webp', translationItem: 4 },
+  { src: '/media/app-pt-BR/thais-vieira/2.5.4/05-diario.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/2.5.4/thumbs/05-diario.webp', translationItem: 5 },
+  { src: '/media/app-pt-BR/thais-vieira/2.5.4/06-perfil-thais-vieira.webp', thumbnailSrc: '/media/app-pt-BR/thais-vieira/2.5.4/thumbs/06-perfil-thais-vieira.webp', translationItem: 6 },
 ] as const;

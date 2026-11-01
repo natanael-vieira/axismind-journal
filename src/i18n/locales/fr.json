@@ -42,7 +42,7 @@
     "feature4Body": "Exportez les périodes au format PDF ou créez une copie cryptée à conserver où vous préférez.",
     "screenshotsEyebrow": "Aperçu de l’application",
     "screenshotsTitle": "Découvrez l’expérience",
-    "screenshotsDescription": "Six captures réelles d’axismind 1.5.56 sur Android, avec le profil de démonstration de Thais Vieira.",
+    "screenshotsDescription": "Six captures réelles d’axismind 2.5.4 sur Android, avec le profil de démonstration de Thais Vieira.",
     "transparencyEyebrow": "Transparence dès le départ",
     "transparencyTitle": "Sachez ce qui reste sur l'appareil et ce qui reste uniquement selon votre choix.",
     "transparencyCta": "Découvrir les contrôles"
@@ -170,7 +170,7 @@
     "item1Alt": "Écran Aujourd’hui d’axismind avec la photo de Thais et les raccourcis de saisie",
     "item2Alt": "Panneau Compass avec des choix de conversation et une aide externe",
     "item3Alt": "Coffre de pensées pour conserver localement des idées et des brouillons",
-    "item4Alt": "Écran Tendances avec une période de 7 jours et un graphique de l’humeur renseignée",
+    "item4Alt": "Écran Tendances avec une période de 30 jours et un graphique de l’humeur renseignée",
     "item5Alt": "Journal axismind avec des notes d’exemple conservées localement",
     "item6Alt": "Profil de Thais Vieira dans axismind",
     "qrAlt": "Code QR PIX pour la clé {email}"
