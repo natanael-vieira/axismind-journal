@@ -4,6 +4,8 @@ import { isRtl, locales } from '@/i18n/messages';
 const routes = [
   ['/', 'Seu espaço para registrar o dia.', 'Início', 'Seu espaço para registrar o dia · axismind'],
   ['/como-usar/', 'Comece com calma e mantenha você no controle.', 'Como usar', 'Como usar · axismind'],
+  ['/sobre/', 'A história por trás do axismind.', 'Sobre', 'Sobre · axismind'],
+  ['/para-profissionais/', 'Um diário pessoal que a pessoa escolhe levar à conversa.', 'Para profissionais', 'Para profissionais · axismind'],
   ['/seguranca/', 'Segurança local, explicada com transparência.', 'Segurança', 'Segurança · axismind'],
   ['/privacidade/', 'Política de Privacidade', 'Privacidade', 'Política de Privacidade · axismind'],
   ['/termos/', 'Termos de Uso', 'Termos', 'Termos de Uso · axismind'],
