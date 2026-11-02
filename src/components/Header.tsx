@@ -36,7 +36,7 @@ export function Header() {
           </Link>
           <span className="-mt-2 pl-[54px] text-[10px] leading-3 tracking-wide text-axis-body">by remnant void</span>
         </div>
-        <nav aria-label={m.accessibility.mainNav} className="hidden items-center gap-1 lg:flex">
+        <nav aria-label={m.accessibility.mainNav} className="hidden items-center gap-1 2xl:flex">
           <NavigationLinks variant="desktop" />
         </nav>
         <div className="flex items-center gap-3">
@@ -44,10 +44,10 @@ export function Header() {
           <SupportLink />
         </div>
       </div>
-      <nav aria-label={m.accessibility.mobileNav} className="axis-scrollbar flex gap-2 overflow-x-auto px-4 pb-4 pt-1 pr-8 lg:hidden">
+      <nav aria-label={m.accessibility.mobileNav} className="axis-scrollbar flex gap-2 overflow-x-auto px-4 pb-4 pt-1 pr-8 2xl:hidden">
         <NavigationLinks variant="mobile" />
       </nav>
-      <div className="border-t border-axis-line/50 px-4 py-2 lg:hidden">
+      <div className="border-t border-axis-line/50 px-4 py-2 2xl:hidden">
         <SupportLink variant="mobile" />
       </div>
     </header>

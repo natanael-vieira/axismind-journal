@@ -5,6 +5,7 @@ import { BrandMark } from './BrandMark';
 import { accountDeletionCopy } from '@/content/account-deletion';
 import { site } from '@/content/site';
 import { useI18n } from '@/i18n/LocaleProvider';
+import { outreach } from '@/content/outreach';
 
 export function Footer() {
   const { locale, messages: m } = useI18n();
@@ -24,6 +25,8 @@ export function Footer() {
           <h2 className="footer-title">{m.footer.information}</h2>
           <ul className="footer-list">
             <li><Link href="/como-usar/">{m.navigation.how}</Link></li>
+            <li><Link href="/sobre/">{outreach[locale].navAbout}</Link></li>
+            <li><Link href="/para-profissionais/">{outreach[locale].navProfessionals}</Link></li>
             <li><Link href="/seguranca/">{m.navigation.security}</Link></li>
             <li><Link href="/privacidade/">{m.navigation.privacy}</Link></li>
             <li><Link href="/exclusao-de-conta/">{accountDeletionCopy[locale].footerLink}</Link></li>

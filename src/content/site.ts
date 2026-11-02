@@ -39,6 +39,8 @@ export const playStore = {
 export const navigation = [
   { href: '/', label: 'Início' },
   { href: '/como-usar/', label: 'Como usar' },
+  { href: '/sobre/', label: 'Sobre' },
+  { href: '/para-profissionais/', label: 'Para profissionais' },
   { href: '/seguranca/', label: 'Segurança' },
   { href: '/privacidade/', label: 'Privacidade' },
   { href: '/termos/', label: 'Termos' },

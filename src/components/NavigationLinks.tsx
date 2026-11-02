@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navigation } from '@/content/site';
 import { useI18n } from '@/i18n/LocaleProvider';
+import { outreach } from '@/content/outreach';
 
 type NavigationLinksProps = {
   variant: 'desktop' | 'mobile';
@@ -31,7 +32,7 @@ const labels = {
 
 export function NavigationLinks({ variant }: NavigationLinksProps) {
   const pathname = normalizePathname(usePathname());
-  const { messages: m } = useI18n();
+  const { messages: m, locale } = useI18n();
 
   return navigation.filter((item) => item.href !== supportItem.href).map((item) => {
     const active = pathname === item.href;
@@ -49,7 +50,9 @@ export function NavigationLinks({ variant }: NavigationLinksProps) {
         aria-current={active ? 'page' : undefined}
         className={`${baseClass}${activeClass}`}
       >
-        {m.navigation[labels[item.href]]}
+        {item.href === '/sobre/' ? outreach[locale].navAbout
+          : item.href === '/para-profissionais/' ? outreach[locale].navProfessionals
+          : m.navigation[labels[item.href]]}
       </Link>
     );
   });
@@ -60,7 +63,7 @@ export function SupportLink({ variant = 'desktop' }: { variant?: 'desktop' | 'mo
   const { messages: m } = useI18n();
   const active = pathname === supportItem.href;
   const mobile = variant === 'mobile';
-  const visibilityClass = mobile ? 'w-full lg:hidden' : 'hidden lg:inline-flex';
+  const visibilityClass = mobile ? 'w-full 2xl:hidden' : 'hidden 2xl:inline-flex';
 
   return (
     <Link

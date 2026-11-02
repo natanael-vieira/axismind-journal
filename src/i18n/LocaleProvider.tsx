@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { accountDeletionCopy } from '@/content/account-deletion';
+import { outreach } from '@/content/outreach';
 import { interpolate, isRtl, messages, type Locale, type Messages } from './messages';
 
 type LocaleContextValue = {
@@ -43,6 +44,8 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
       'exclusao-de-conta': accountDeletionCopy[locale].title,
       termos: messages[locale].meta.termsTitle,
       apoie: messages[locale].meta.supportTitle,
+      sobre: outreach[locale].navAbout,
+      'para-profissionais': outreach[locale].navProfessionals,
     };
     const pageTitle = titleByRoute[route] ?? messages[locale].meta.siteTitle;
     document.title = `${pageTitle} · ${messages[locale].meta.siteTitle}`;

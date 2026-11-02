@@ -1,5 +1,10 @@
 # axismind-journal
 
+Apresentação do projeto: `/sobre/` e `/para-profissionais/`, nos cinco idiomas
+publicados. Estratégia e mensagens de contato no
+[plano de divulgação](docs/plano-divulgacao.md). A lista de contatos deve permanecer
+privada, fora deste repositório.
+
 Site institucional do axismind, um diário pessoal local-first para registrar
 experiências, rotina e anotações.
 
