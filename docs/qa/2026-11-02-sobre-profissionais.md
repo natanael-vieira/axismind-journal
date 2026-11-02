@@ -54,3 +54,19 @@ Sem validação em aparelhos físicos, leitores de tela ou revisão humana compl
 das traduções adicionais. A campanha, lista privada de contatos, PDF fictício e
 vídeo de demonstração ainda não foram executados/criados. Nenhuma mensagem enviada.
 Aplicativo Android, AAB, sites de terceiros e política legal existente não alterados.
+
+## Integração para publicação autorizada
+
+Publicação autorizada pelo responsável em 02/11/2026. Entrega isolada sobre
+main `7c36623` na branch `codex/about-professionals-20261102`, preservando
+dependências, política e exclusão de conta já publicadas. Alterações antigas
+da branch local permanecem fora do PR.
+
+- [PR 19](https://github.com/natanael-vieira/axismind-journal/pull/19).
+- Dependências instaladas com lockfile da base remota, sem alteração de versões.
+- Nova validação local: 8 suítes/38 testes unitários, build padrão com
+  Next.js 16.4.3/Turbopack e TypeScript aprovados; exportação de 9 rotas com
+  basePath de produção, incluindo exclusão de conta preservada.
+- Os checks obrigatórios do GitHub e o deploy devem concluir antes de considerar
+  o site publicado. O estado acima de “sem commit/push/publicação” descreve
+  a preparação local anterior à autorização, não esta etapa de integração.

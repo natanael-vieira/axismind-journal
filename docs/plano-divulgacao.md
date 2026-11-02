@@ -2,7 +2,7 @@
 
 Plano autorizado em 02/11/2026. Objetivo: apresentar o projeto gratuito e sem
 anúncios, conseguir avaliações voluntárias e ampliar seu alcance sem prometer
-resultado terapêutico. Sem envio automático de mensagens ou publicação autorizados.
+resultado terapêutico. Publicação das páginas autorizada em 02/11/2026. Envio de mensagens não autorizado.
 
 ## Posicionamento
 
