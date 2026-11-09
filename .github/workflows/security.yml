@@ -24,7 +24,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Inicializar o CodeQL
-        uses: github/codeql-action/init@fddeee1a7ece751b577e409a89057319e3172939 # v4
+        uses: github/codeql-action/init@ce8b5602e2e75eddc698f13db2342ef698999255 # v4
         with:
           languages: javascript-typescript
       - name: Analisar
